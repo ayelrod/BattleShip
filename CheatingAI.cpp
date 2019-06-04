@@ -24,3 +24,7 @@ void BattleShip::CheatingAI::setName(std::string name) {
 void BattleShip::CheatingAI::placeShips() {
     AiPlayer::placeShips();
 }
+
+std::map<BattleShip::Ship, int> BattleShip::CheatingAI::getShipHealths() {
+    return shipHealths;
+}

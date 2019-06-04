@@ -60,3 +60,24 @@ void BattleShip::HumanPlayer::placeShips() {
 std::string BattleShip::HumanPlayer::getName() {
     return name;
 }
+
+BattleShip::Move BattleShip::HumanPlayer::getPosition() {
+    int row, col;
+    do {
+        std::cout << getName() << ", where would you like to fire?" << std::endl;
+        std::cout << "Enter your attack coordinate in the form row col: ";
+        std::cin >> row;
+        std::cin >> col;
+    }while(row > getBoard().getNumRows() || col > getBoard().getNumCols() || !validMove(row, col));
+    Move temp = Move(row, col);
+    return temp;
+}
+
+bool BattleShip::HumanPlayer::validMove(int row, int col) {
+    return getBoard().getFiringBoard()[row][col] == '*';
+}
+
+std::map<BattleShip::Ship, int> BattleShip::HumanPlayer::getShipHealths() {
+    return shipHealths;
+}
+

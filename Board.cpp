@@ -62,3 +62,18 @@ void BattleShip::Board::displayPlacement(std::string name) {
         std::cout << std::endl;
     }
 }
+
+void BattleShip::Board::makeMove(BattleShip::Move move, std::unique_ptr<Player>& otherPlayer, std::string name) {
+    if(otherPlayer->getBoard().getPlacementBoard()[move.row][move.col] == '*'){
+        this->firingBoard[move.row][move.col] = '0';
+        otherPlayer->getBoard().firingBoard[move.row][move.col] = '0';
+        std::cout << "You missed." << std::endl;
+    }
+    else{
+        char shipChar = otherPlayer->getBoard().getPlacementBoard()[move.row][move.col];
+        this->firingBoard[move.row][move.col] = 'X';
+        otherPlayer->getBoard().firingBoard[move.row][move.col] = 'X';
+        std::cout << name << " hit " << otherPlayer->getName() << "'s " << shipChar << "!";
+    }
+}
+

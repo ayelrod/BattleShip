@@ -312,6 +312,33 @@ HuntDestroyAI.cpp.s:
 	$(MAKE) -f CMakeFiles/BattleShip.dir/build.make CMakeFiles/BattleShip.dir/HuntDestroyAI.cpp.s
 .PHONY : HuntDestroyAI.cpp.s
 
+Move.o: Move.cpp.o
+
+.PHONY : Move.o
+
+# target to build an object file
+Move.cpp.o:
+	$(MAKE) -f CMakeFiles/BattleShip.dir/build.make CMakeFiles/BattleShip.dir/Move.cpp.o
+.PHONY : Move.cpp.o
+
+Move.i: Move.cpp.i
+
+.PHONY : Move.i
+
+# target to preprocess a source file
+Move.cpp.i:
+	$(MAKE) -f CMakeFiles/BattleShip.dir/build.make CMakeFiles/BattleShip.dir/Move.cpp.i
+.PHONY : Move.cpp.i
+
+Move.s: Move.cpp.s
+
+.PHONY : Move.s
+
+# target to generate assembly for a file
+Move.cpp.s:
+	$(MAKE) -f CMakeFiles/BattleShip.dir/build.make CMakeFiles/BattleShip.dir/Move.cpp.s
+.PHONY : Move.cpp.s
+
 Player.o: Player.cpp.o
 
 .PHONY : Player.o
@@ -504,6 +531,9 @@ help:
 	@echo "... HuntDestroyAI.o"
 	@echo "... HuntDestroyAI.i"
 	@echo "... HuntDestroyAI.s"
+	@echo "... Move.o"
+	@echo "... Move.i"
+	@echo "... Move.s"
 	@echo "... Player.o"
 	@echo "... Player.i"
 	@echo "... Player.s"

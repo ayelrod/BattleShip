@@ -4,7 +4,7 @@
 
 #include "Ship.h"
 
-BattleShip::Ship::Ship(int size, char symbol, BattleShip::ShipPosition position) : size(size), symbol(symbol), position(position) {
+BattleShip::Ship::Ship(int size, char symbol, BattleShip::ShipPosition position) : size(size), symbol(symbol), position(position) , destroyed(false){
 
 }
 
@@ -18,4 +18,12 @@ char BattleShip::Ship::getSymbol() const {
 
 const BattleShip::ShipPosition &BattleShip::Ship::getPosition() const {
     return position;
+}
+
+bool BattleShip::Ship::getDestroyed() {
+    return destroyed;
+}
+
+void BattleShip::Ship::changeDestroyed() {
+    destroyed = true;
 }

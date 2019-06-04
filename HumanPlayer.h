@@ -12,7 +12,9 @@ namespace BattleShip {
         HumanPlayer(const GameAttributes& gameAttributes, std::vector<Ship> ships, int playerNumber);
         void placeShips() override;
         std::string getName() override;
-        ShipPosition getPosition() override;
+        Move getPosition() override;
+        bool validMove(int row, int col);
+        std::map<Ship, int> getShipHealths() override;
     protected:
         Board board;
         std::map<Ship, int> shipHealths;

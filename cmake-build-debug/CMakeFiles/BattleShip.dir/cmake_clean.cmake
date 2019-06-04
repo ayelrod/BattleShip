@@ -12,6 +12,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/BattleShip.dir/CheatingAI.cpp.o"
   "CMakeFiles/BattleShip.dir/RandomAI.cpp.o"
   "CMakeFiles/BattleShip.dir/HuntDestroyAI.cpp.o"
+  "CMakeFiles/BattleShip.dir/Move.cpp.o"
   "BattleShip.pdb"
   "BattleShip"
 )

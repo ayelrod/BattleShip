@@ -16,9 +16,12 @@ namespace BattleShip {
                        std::vector<int>& shipSizes, int gameType, int seed);
         void playGame();
         void initializePlayers(GameAttributes& gameAttributes);
-        void takeTurn(std::unique_ptr<Player>& player);
+        void takeTurn(std::vector<std::unique_ptr<Player>> players, int currentTurn);
         void changeTurn(int& currentTurn);
-        ShipPosition getPosition(std::unique_ptr<Player>& player);
+        Move getPosition(std::unique_ptr<Player>& player);
+        bool gameOver();
+        void printWinner(int currentTurn);
+        void destroyedShip(const Ship& ship);
     private:
         std::vector<std::unique_ptr<Player>> players;
         int currentTurn;

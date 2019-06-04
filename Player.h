@@ -8,6 +8,7 @@
 #include <map>
 #include "Board.h"
 #include "Ship.h"
+#include "Move.h"
 
 namespace BattleShip {
     class Player {
@@ -19,8 +20,8 @@ namespace BattleShip {
         virtual void initializeName();
         virtual Board& getBoard();
         virtual std::string getName();
-        virtual ShipPosition getPosition();
-
+        virtual Move getPosition();
+        virtual std::map<Ship, int> getShipHealths();
     protected:
 //        Board board;
 //        std::map<Ship, int> shipHealths;

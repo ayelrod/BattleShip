@@ -13,8 +13,11 @@ namespace BattleShip {
         const int getSize() const;
         char getSymbol() const;
         const ShipPosition &getPosition() const;
+        bool getDestroyed();
+        void changeDestroyed();
 
     private:
+        bool destroyed;
         const int size;
         const char symbol;
         ShipPosition position;

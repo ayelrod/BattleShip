@@ -21,4 +21,8 @@ void BattleShip::HuntDestroyAI::setName(std::string name) {
     this->name = name;
 }
 
+std::map<BattleShip::Ship, int> BattleShip::HuntDestroyAI::getShipHealths() {
+    return shipHealths;
+}
+
 

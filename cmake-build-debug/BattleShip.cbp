@@ -122,6 +122,12 @@
 		<Unit filename="/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/HuntDestroyAI.h">
 			<Option target="BattleShip"/>
 		</Unit>
+		<Unit filename="/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Move.cpp">
+			<Option target="BattleShip"/>
+		</Unit>
+		<Unit filename="/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Move.h">
+			<Option target="BattleShip"/>
+		</Unit>
 		<Unit filename="/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Player.cpp">
 			<Option target="BattleShip"/>
 		</Unit>

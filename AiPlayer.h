@@ -19,8 +19,8 @@ class AiPlayer : public Player {
     virtual void initializeName() override;
     virtual void setName(std::string name);
     std::string getName() override;
-    virtual ShipPosition getPosition();
-
+    virtual Move getPosition();
+    virtual std::map<Ship, int> getShipHealths();
  protected:
     static std::mt19937 randomNumberGenerator;
 
