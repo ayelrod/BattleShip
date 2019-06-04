@@ -12,7 +12,7 @@ const int BattleShip::Ship::getSize() const {
     return size;
 }
 
-const char BattleShip::Ship::getSymbol() const {
+char BattleShip::Ship::getSymbol() const {
     return symbol;
 }
 

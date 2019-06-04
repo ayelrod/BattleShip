@@ -6,11 +6,11 @@
 #include "HumanPlayer.h"
 #include "AiPlayer.h"
 
-BattleShip::Player::Player(GameAttributes& gameAttributes, std::vector<Ship> ships) {
+BattleShip::Player::Player(const GameAttributes& gameAttributes, std::vector<Ship> ships) {
     AiPlayer();
 }
 
-BattleShip::Player::Player(BattleShip::GameAttributes &gameAttributes, std::vector<BattleShip::Ship> ships,
+BattleShip::Player::Player(const BattleShip::GameAttributes &gameAttributes, std::vector<BattleShip::Ship> ships,
                            int playerNumber) {
     HumanPlayer(gameAttributes, ships, playerNumber);
 }

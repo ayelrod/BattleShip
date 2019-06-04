@@ -12,17 +12,11 @@ namespace BattleShip {
     public:
         GameAttributes(int numRows, int numCols, int numShips, std::vector<char>& shipChars, std::vector<int>& shipSizes, int gameType, int seed);
         const int getNumRows() const;
-
         const int getNumCols() const;
-
         const int getNumShips() const;
-
         const std::vector<char> &getShipChars() const;
-
         const std::vector<int> &getShipSizes() const;
-
         const int getGameType() const;
-
         const int getSeed() const;
 
     private:
@@ -33,8 +27,6 @@ namespace BattleShip {
         const std::vector<int> shipSizes;
         const int gameType;
         const int seed;
-
-
     };
 }
 

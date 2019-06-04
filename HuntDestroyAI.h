@@ -2,19 +2,18 @@
 // Created by Lucas Rodriguez on 2019-06-04.
 //
 
-#ifndef BATTLESHIP_CHEATINGAI_H
-#define BATTLESHIP_CHEATINGAI_H
+#ifndef BATTLESHIP_HUNTDESTROYAI_H
+#define BATTLESHIP_HUNTDESTROYAI_H
 #include "AiPlayer.h"
 
-
 namespace BattleShip {
-    class CheatingAI : public AiPlayer {
+    class HuntDestroyAI : public AiPlayer{
     public:
-        CheatingAI(const GameAttributes& gameAttributes, std::vector<Ship> ships);
+        HuntDestroyAI(const GameAttributes& gameAttributes, std::vector<Ship> ships);
         virtual void initializeName();
-        void setName(std::string name) override ;
-        void placeShips() override;
+        void setName(std::string name) override;
         ShipPosition getPosition() override;
+
     protected:
         Board board;
         std::map<Ship, int> shipHealths;
@@ -24,4 +23,4 @@ namespace BattleShip {
 }
 
 
-#endif //BATTLESHIP_CHEATINGAI_H
+#endif //BATTLESHIP_HUNTDESTROYAI_H

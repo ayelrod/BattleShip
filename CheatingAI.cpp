@@ -4,15 +4,13 @@
 
 #include "CheatingAI.h"
 
-BattleShip::CheatingAI::CheatingAI(BattleShip::GameAttributes &gameAttributes, std::vector<BattleShip::Ship> ships)
+BattleShip::CheatingAI::CheatingAI(const BattleShip::GameAttributes &gameAttributes, std::vector<BattleShip::Ship> ships)
         : ships(ships), board(gameAttributes){
     this->initializeName();
-
-
     for(int i = 0; i < ships.size(); i++){
         shipHealths[ships[i]] = gameAttributes.getShipSizes()[i];
     }
-
+    placeShips();
 }
 
 void BattleShip::CheatingAI::initializeName() {
@@ -21,4 +19,8 @@ void BattleShip::CheatingAI::initializeName() {
 
 void BattleShip::CheatingAI::setName(std::string name) {
     this->name = name;
+}
+
+void BattleShip::CheatingAI::placeShips() {
+    AiPlayer::placeShips();
 }

@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/CheatingAI.cpp" "/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/cmake-build-debug/CMakeFiles/BattleShip.dir/CheatingAI.cpp.o"
   "/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/GameAttributes.cpp" "/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/cmake-build-debug/CMakeFiles/BattleShip.dir/GameAttributes.cpp.o"
   "/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/HumanPlayer.cpp" "/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/cmake-build-debug/CMakeFiles/BattleShip.dir/HumanPlayer.cpp.o"
+  "/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/HuntDestroyAI.cpp" "/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/cmake-build-debug/CMakeFiles/BattleShip.dir/HuntDestroyAI.cpp.o"
   "/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Player.cpp" "/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/cmake-build-debug/CMakeFiles/BattleShip.dir/Player.cpp.o"
   "/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/RandomAI.cpp" "/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/cmake-build-debug/CMakeFiles/BattleShip.dir/RandomAI.cpp.o"
   "/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Ship.cpp" "/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/cmake-build-debug/CMakeFiles/BattleShip.dir/Ship.cpp.o"

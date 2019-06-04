@@ -285,6 +285,33 @@ HumanPlayer.cpp.s:
 	$(MAKE) -f CMakeFiles/BattleShip.dir/build.make CMakeFiles/BattleShip.dir/HumanPlayer.cpp.s
 .PHONY : HumanPlayer.cpp.s
 
+HuntDestroyAI.o: HuntDestroyAI.cpp.o
+
+.PHONY : HuntDestroyAI.o
+
+# target to build an object file
+HuntDestroyAI.cpp.o:
+	$(MAKE) -f CMakeFiles/BattleShip.dir/build.make CMakeFiles/BattleShip.dir/HuntDestroyAI.cpp.o
+.PHONY : HuntDestroyAI.cpp.o
+
+HuntDestroyAI.i: HuntDestroyAI.cpp.i
+
+.PHONY : HuntDestroyAI.i
+
+# target to preprocess a source file
+HuntDestroyAI.cpp.i:
+	$(MAKE) -f CMakeFiles/BattleShip.dir/build.make CMakeFiles/BattleShip.dir/HuntDestroyAI.cpp.i
+.PHONY : HuntDestroyAI.cpp.i
+
+HuntDestroyAI.s: HuntDestroyAI.cpp.s
+
+.PHONY : HuntDestroyAI.s
+
+# target to generate assembly for a file
+HuntDestroyAI.cpp.s:
+	$(MAKE) -f CMakeFiles/BattleShip.dir/build.make CMakeFiles/BattleShip.dir/HuntDestroyAI.cpp.s
+.PHONY : HuntDestroyAI.cpp.s
+
 Player.o: Player.cpp.o
 
 .PHONY : Player.o
@@ -474,6 +501,9 @@ help:
 	@echo "... HumanPlayer.o"
 	@echo "... HumanPlayer.i"
 	@echo "... HumanPlayer.s"
+	@echo "... HuntDestroyAI.o"
+	@echo "... HuntDestroyAI.i"
+	@echo "... HuntDestroyAI.s"
 	@echo "... Player.o"
 	@echo "... Player.i"
 	@echo "... Player.s"

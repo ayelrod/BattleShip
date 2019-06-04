@@ -7,13 +7,16 @@
 #include "AiPlayer.h"
 #include "ShipPosition.h"
 #include "CheatingAI.h"
+
 int BattleShip::AiPlayer::nextAiId = 1;
 std::mt19937 BattleShip::AiPlayer::randomNumberGenerator((time(nullptr)));
 
+BattleShip::AiPlayer::AiPlayer() : aiId(1){
 
+}
 
-BattleShip::AiPlayer::AiPlayer(const BattleShip::GameAttributes& gameAttributes, std::vector<Ship> ships) :
-    Player(gameAttributes, view), aiId(AiPlayer::nextAiId) {
+BattleShip::AiPlayer::AiPlayer(const BattleShip::GameAttributes& gameAttributes, std::vector<Ship> ships) : aiId(AiPlayer::nextAiId), ships(ships){
+    // Player(gameAttributes, view)
     int aiType = 0;
     do{
         std::cout << "What AI do you want" << std::endl;
@@ -27,8 +30,8 @@ BattleShip::AiPlayer::AiPlayer(const BattleShip::GameAttributes& gameAttributes,
         CheatingAI(gameAttributes, ships);
     }
     nextAiId++;
-}
 
+}
 
 void BattleShip::AiPlayer::placeShips() {
   std::vector<char> orientation_choice{'h', 'v'};
@@ -36,23 +39,24 @@ void BattleShip::AiPlayer::placeShips() {
   const int numCols = getBoard().getNumCols();
 
   ShipPosition placement;
-  for(const auto& ship : shipHealths) {
+  for(const auto& ship : ships) {
     do {
       char orientation = *chooseRandom(orientation_choice, randomNumberGenerator);
       if (orientation == 'h') {
         placement.rowStart = getRandInt(0, numRows - 1, randomNumberGenerator);
-        placement.colStart = getRandInt(0, numCols - ship.second, randomNumberGenerator);
+        placement.colStart = getRandInt(0, numCols - ship.getSize(), randomNumberGenerator);
         placement.rowEnd = placement.rowStart;
-        placement.colEnd = placement.colStart + ship.second - 1;
+        placement.colEnd = placement.colStart + ship.getSize() - 1;
       } else {
-        placement.rowStart = getRandInt(0, numRows - ship.second, randomNumberGenerator);
+        placement.rowStart = getRandInt(0, numRows - ship.getSize(), randomNumberGenerator);
         placement.colStart = getRandInt(0, numCols - 1, randomNumberGenerator);
-        placement.rowEnd = placement.rowStart + ship.second - 1;
+        placement.rowEnd = placement.rowStart + ship.getSize() - 1;
         placement.colEnd = placement.colStart;
       }
     }while(!getBoard().canPlaceShipAt(placement));
-    getBoard().AddShip(ship.first, placement);
-    view.showPlacementBoard(*this);
+    getBoard().AddShip(ship, placement);
+    getBoard().displayPlacement(name);
+    //view.showPlacementBoard(*this);
   }
 }
 
@@ -67,9 +71,9 @@ void BattleShip::AiPlayer::seed_random_number_generator(int seed) {
 }
 
 void BattleShip::AiPlayer::setName(std::string name) {
-    return;
+    this->name = name;
 }
 
-
-
-
+std::string BattleShip::AiPlayer::getName() {
+    return name;
+}

@@ -4,7 +4,7 @@
 
 #include "HumanPlayer.h"
 
-BattleShip::HumanPlayer::HumanPlayer(BattleShip::GameAttributes &gameAttributes, std::vector<BattleShip::Ship> ships, int playerNumber) : ships(ships),
+BattleShip::HumanPlayer::HumanPlayer(const BattleShip::GameAttributes &gameAttributes, std::vector<BattleShip::Ship> ships, int playerNumber) : ships(ships),
     board(gameAttributes){
     //initialize boards
 
@@ -16,4 +16,47 @@ BattleShip::HumanPlayer::HumanPlayer(BattleShip::GameAttributes &gameAttributes,
     for(int i = 0; i < ships.size(); i++){
         shipHealths[ships[i]] = gameAttributes.getShipSizes()[i];
     }
+
+    placeShips();
+}
+
+void BattleShip::HumanPlayer::placeShips() {
+    char orientation;
+    const int numRows = getBoard().getNumRows();
+    const int numCols = getBoard().getNumCols();
+
+    ShipPosition placement;
+    for(const auto& ship : ships) {
+        do {
+            std::cout<< this->name << ", do you want to place " << ship.getSymbol() << " horizontally or vertically?" << std::endl;
+            std::cout << "Your choice: ";
+            std::cin >> orientation;
+            if (orientation == 'h') {
+                std::cout << this->name << ", enter the row and column you want to place " << ship.getSymbol() << ", which is " << ship.getSize() << " long, at with a space in between row and col:" << std::endl;
+                std::cout << "Your choice: ";
+                std::cin >> placement.rowStart;
+                std::cin >> placement.colStart;
+                placement.rowEnd = placement.rowStart;
+                placement.colEnd = placement.colStart + ship.getSize() - 1;
+
+            } else if (orientation == 'v'){
+                std::cout << this->name << ", enter the row and column you want to place " << ship.getSymbol() << ", which is " << ship.getSize() << " long, at with a space in between row and col:" << std::endl;
+                std::cout << "Your choice: ";
+                std::cin >> placement.rowStart;
+                std::cin >> placement.colStart;
+                placement.rowEnd = placement.rowStart + ship.getSize() - 1;
+                placement.colEnd = placement.colStart;
+            }
+            else{
+                continue;
+            }
+        }while(!getBoard().canPlaceShipAt(placement));
+        getBoard().AddShip(ship, placement);
+        getBoard().displayPlacement(name);
+        //view.showPlacementBoard(*this);
+    }
+}
+
+std::string BattleShip::HumanPlayer::getName() {
+    return name;
 }

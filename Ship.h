@@ -10,11 +10,8 @@ namespace BattleShip {
     class Ship {
     public:
         Ship(int size, char symbol, ShipPosition position);
-
         const int getSize() const;
-
-        const char getSymbol() const;
-
+        char getSymbol() const;
         const ShipPosition &getPosition() const;
 
     private:

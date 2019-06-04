@@ -12,20 +12,23 @@ namespace BattleShip {
 class Move;
 class AiPlayer : public Player {
  public:
-  AiPlayer(const BattleShip::GameAttributes& gameAttributes, std::vector<Ship> ships);
-  static void seed_random_number_generator(int seed);
-  virtual void placeShips() override;
-  virtual void initializeName() override;
-  virtual void setName(std::string name);
-
+    AiPlayer();
+    AiPlayer(const BattleShip::GameAttributes& gameAttributes, std::vector<Ship> ships);
+    static void seed_random_number_generator(int seed);
+    virtual void placeShips() override;
+    virtual void initializeName() override;
+    virtual void setName(std::string name);
+    std::string getName() override;
+    virtual ShipPosition getPosition();
 
  protected:
-  static std::mt19937 randomNumberGenerator;
+    static std::mt19937 randomNumberGenerator;
 
  private:
-  static int nextAiId;
-  const int aiId;
-
+    static int nextAiId;
+    const int aiId;
+    std::vector<Ship> ships;
+    std::string name;
 };
 }
 #endif //BATTLESHIP_AIPLAYER_H

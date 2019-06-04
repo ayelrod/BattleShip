@@ -9,7 +9,10 @@
 namespace BattleShip {
     class HumanPlayer : public Player {
     public:
-        HumanPlayer(GameAttributes& gameAttributes, std::vector<Ship> ships, int playerNumber);
+        HumanPlayer(const GameAttributes& gameAttributes, std::vector<Ship> ships, int playerNumber);
+        void placeShips() override;
+        std::string getName() override;
+        ShipPosition getPosition() override;
     protected:
         Board board;
         std::map<Ship, int> shipHealths;

@@ -5,16 +5,19 @@ CMakeFiles/BattleShip.dir/AiPlayer.cpp.o
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/AiPlayer.cpp
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/AiPlayer.h
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Board.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/CheatingAI.h
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/GameAttributes.h
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Player.h
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Ship.h
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/ShipPosition.h
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Utility.h
 CMakeFiles/BattleShip.dir/BattleShipGame.cpp.o
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/AiPlayer.h
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/BattleShipGame.cpp
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/BattleShipGame.h
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Board.h
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/GameAttributes.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/HumanPlayer.h
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Player.h
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Ship.h
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/ShipPosition.h
@@ -22,14 +25,53 @@ CMakeFiles/BattleShip.dir/Board.cpp.o
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Board.cpp
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Board.h
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/GameAttributes.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Ship.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/ShipPosition.h
+CMakeFiles/BattleShip.dir/CheatingAI.cpp.o
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/AiPlayer.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Board.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/CheatingAI.cpp
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/CheatingAI.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/GameAttributes.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Player.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Ship.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/ShipPosition.h
 CMakeFiles/BattleShip.dir/GameAttributes.cpp.o
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/GameAttributes.cpp
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/GameAttributes.h
-CMakeFiles/BattleShip.dir/Player.cpp.o
+CMakeFiles/BattleShip.dir/HumanPlayer.cpp.o
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Board.h
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/GameAttributes.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/HumanPlayer.cpp
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/HumanPlayer.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Player.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Ship.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/ShipPosition.h
+CMakeFiles/BattleShip.dir/HuntDestroyAI.cpp.o
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/AiPlayer.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Board.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/GameAttributes.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/HuntDestroyAI.cpp
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/HuntDestroyAI.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Player.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Ship.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/ShipPosition.h
+CMakeFiles/BattleShip.dir/Player.cpp.o
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/AiPlayer.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Board.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/GameAttributes.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/HumanPlayer.h
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Player.cpp
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Player.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Ship.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/ShipPosition.h
+CMakeFiles/BattleShip.dir/RandomAI.cpp.o
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/AiPlayer.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Board.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/GameAttributes.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Player.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/RandomAI.cpp
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/RandomAI.h
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Ship.h
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/ShipPosition.h
 CMakeFiles/BattleShip.dir/Ship.cpp.o
@@ -43,9 +85,11 @@ CMakeFiles/BattleShip.dir/Utility.cpp.o
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Utility.cpp
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Utility.h
 CMakeFiles/BattleShip.dir/main.cpp.o
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/AiPlayer.h
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/BattleShipGame.h
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Board.h
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/GameAttributes.h
+ /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/HumanPlayer.h
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Player.h
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Ship.h
  /Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/ShipPosition.h
