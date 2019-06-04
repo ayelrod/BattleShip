@@ -13,6 +13,7 @@
 namespace BattleShip {
     class Board {
     public:
+
         Board(const GameAttributes& gameAttributes);
         void display();
         int getNumRows();

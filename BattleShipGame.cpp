@@ -11,5 +11,19 @@ BattleShip::BattleShipGame::BattleShipGame(int numRows, int numCols, int numShip
 }
 
 void BattleShip::BattleShipGame::playGame() {
+    initializePlayers(gameAttributes);
 
+
+}
+
+void BattleShip::BattleShipGame::initializePlayers(GameAttributes& gameAttributes) {
+    ShipPosition tempPosition;
+    std::vector<Ship> ships;
+    for(int i = 0; i < gameAttributes.getNumShips(); i++){
+        ships.emplace_back(Ship(gameAttributes.getShipChars()[i], gameAttributes.getShipSizes()[i], tempPosition));
+    }
+    int gameType = gameAttributes.getGameType();
+    if(gameType == 1){
+        this->players.push_back(HumanPlayer())
+    }
 }

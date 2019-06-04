@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/BattleShip.dir/Board.cpp.o"
   "CMakeFiles/BattleShip.dir/Ship.cpp.o"
   "CMakeFiles/BattleShip.dir/ShipPosition.cpp.o"
+  "CMakeFiles/BattleShip.dir/HumanPlayer.cpp.o"
   "BattleShip.pdb"
   "BattleShip"
 )

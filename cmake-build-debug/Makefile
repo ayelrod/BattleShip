@@ -231,6 +231,33 @@ GameAttributes.cpp.s:
 	$(MAKE) -f CMakeFiles/BattleShip.dir/build.make CMakeFiles/BattleShip.dir/GameAttributes.cpp.s
 .PHONY : GameAttributes.cpp.s
 
+HumanPlayer.o: HumanPlayer.cpp.o
+
+.PHONY : HumanPlayer.o
+
+# target to build an object file
+HumanPlayer.cpp.o:
+	$(MAKE) -f CMakeFiles/BattleShip.dir/build.make CMakeFiles/BattleShip.dir/HumanPlayer.cpp.o
+.PHONY : HumanPlayer.cpp.o
+
+HumanPlayer.i: HumanPlayer.cpp.i
+
+.PHONY : HumanPlayer.i
+
+# target to preprocess a source file
+HumanPlayer.cpp.i:
+	$(MAKE) -f CMakeFiles/BattleShip.dir/build.make CMakeFiles/BattleShip.dir/HumanPlayer.cpp.i
+.PHONY : HumanPlayer.cpp.i
+
+HumanPlayer.s: HumanPlayer.cpp.s
+
+.PHONY : HumanPlayer.s
+
+# target to generate assembly for a file
+HumanPlayer.cpp.s:
+	$(MAKE) -f CMakeFiles/BattleShip.dir/build.make CMakeFiles/BattleShip.dir/HumanPlayer.cpp.s
+.PHONY : HumanPlayer.cpp.s
+
 Player.o: Player.cpp.o
 
 .PHONY : Player.o
@@ -387,6 +414,9 @@ help:
 	@echo "... GameAttributes.o"
 	@echo "... GameAttributes.i"
 	@echo "... GameAttributes.s"
+	@echo "... HumanPlayer.o"
+	@echo "... HumanPlayer.i"
+	@echo "... HumanPlayer.s"
 	@echo "... Player.o"
 	@echo "... Player.i"
 	@echo "... Player.s"

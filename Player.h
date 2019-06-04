@@ -12,12 +12,14 @@
 namespace BattleShip {
     class Player {
     public:
+        Player(GameAttributes& gameAttributes, std::vector<Ship> ships);
+        Player(GameAttributes& gameAttributes, std::vector<Ship> ships, int playerNumber);
         virtual void placeShips();
         virtual void initializeName();
         virtual Board& getBoard();
 
     protected:
-        Board& board;
+        Board board;
         std::map<Ship, int> shipHealths;
         std::string name;
         std::vector<Ship> ships;

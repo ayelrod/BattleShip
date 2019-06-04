@@ -104,6 +104,12 @@
 		<Unit filename="/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/GameAttributes.h">
 			<Option target="BattleShip"/>
 		</Unit>
+		<Unit filename="/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/HumanPlayer.cpp">
+			<Option target="BattleShip"/>
+		</Unit>
+		<Unit filename="/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/HumanPlayer.h">
+			<Option target="BattleShip"/>
+		</Unit>
 		<Unit filename="/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Player.cpp">
 			<Option target="BattleShip"/>
 		</Unit>
