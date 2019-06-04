@@ -12,6 +12,7 @@
 namespace BattleShip {
     class Player {
     public:
+        Player();
         Player(GameAttributes& gameAttributes, std::vector<Ship> ships);
         Player(GameAttributes& gameAttributes, std::vector<Ship> ships, int playerNumber);
         virtual void placeShips();
@@ -19,10 +20,10 @@ namespace BattleShip {
         virtual Board& getBoard();
 
     protected:
-        Board board;
-        std::map<Ship, int> shipHealths;
-        std::string name;
-        std::vector<Ship> ships;
+//        Board board;
+//        std::map<Ship, int> shipHealths;
+//        std::string name;
+//        std::vector<Ship> ships;
     };
 }
 

@@ -19,11 +19,22 @@ void BattleShip::BattleShipGame::playGame() {
 void BattleShip::BattleShipGame::initializePlayers(GameAttributes& gameAttributes) {
     ShipPosition tempPosition;
     std::vector<Ship> ships;
+    //create vector of ships
     for(int i = 0; i < gameAttributes.getNumShips(); i++){
         ships.emplace_back(Ship(gameAttributes.getShipChars()[i], gameAttributes.getShipSizes()[i], tempPosition));
     }
+
+    //get game type
     int gameType = gameAttributes.getGameType();
+
+    //if human vs human
     if(gameType == 1){
-        this->players.push_back(HumanPlayer())
+        Player* player1 = new HumanPlayer(gameAttributes, ships, 1);
+        Player* player2 = new HumanPlayer(gameAttributes, ships, 2);
+        this->players.push_back(player1);
+        this->players.push_back(player2);
+    }
+    else if(gameType == 2){
+
     }
 }

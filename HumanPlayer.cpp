@@ -4,7 +4,7 @@
 
 #include "HumanPlayer.h"
 
-BattleShip::HumanPlayer::HumanPlayer(BattleShip::GameAttributes &gameAttributes, std::vector<BattleShip::Ship> ships, int playerNumber) : ships(ships)
+BattleShip::HumanPlayer::HumanPlayer(BattleShip::GameAttributes &gameAttributes, std::vector<BattleShip::Ship> ships, int playerNumber) : ships(ships),
     board(gameAttributes){
     //initialize boards
 
