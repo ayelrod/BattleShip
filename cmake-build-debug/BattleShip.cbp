@@ -98,6 +98,12 @@
 		<Unit filename="/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Board.h">
 			<Option target="BattleShip"/>
 		</Unit>
+		<Unit filename="/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/CheatingAI.cpp">
+			<Option target="BattleShip"/>
+		</Unit>
+		<Unit filename="/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/CheatingAI.h">
+			<Option target="BattleShip"/>
+		</Unit>
 		<Unit filename="/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/GameAttributes.cpp">
 			<Option target="BattleShip"/>
 		</Unit>
@@ -114,6 +120,12 @@
 			<Option target="BattleShip"/>
 		</Unit>
 		<Unit filename="/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Player.h">
+			<Option target="BattleShip"/>
+		</Unit>
+		<Unit filename="/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/RandomAI.cpp">
+			<Option target="BattleShip"/>
+		</Unit>
+		<Unit filename="/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/RandomAI.h">
 			<Option target="BattleShip"/>
 		</Unit>
 		<Unit filename="/Users/lucasrodriguez/Documents/ECS36B/Final/BattleShip/Ship.cpp">

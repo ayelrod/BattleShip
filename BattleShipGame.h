@@ -7,6 +7,7 @@
 #include <vector>
 #include "GameAttributes.h"
 #include "HumanPlayer.h"
+#include "AiPlayer.h"
 
 namespace BattleShip {
     class BattleShipGame {
@@ -16,7 +17,7 @@ namespace BattleShip {
         void playGame();
         void initializePlayers(GameAttributes& gameAttributes);
     private:
-        std::vector<Player*> players;
+        std::vector<std::unique_ptr<Player>> players;
         int currentTurn;
         GameAttributes gameAttributes;
     };

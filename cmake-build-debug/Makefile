@@ -204,6 +204,33 @@ Board.cpp.s:
 	$(MAKE) -f CMakeFiles/BattleShip.dir/build.make CMakeFiles/BattleShip.dir/Board.cpp.s
 .PHONY : Board.cpp.s
 
+CheatingAI.o: CheatingAI.cpp.o
+
+.PHONY : CheatingAI.o
+
+# target to build an object file
+CheatingAI.cpp.o:
+	$(MAKE) -f CMakeFiles/BattleShip.dir/build.make CMakeFiles/BattleShip.dir/CheatingAI.cpp.o
+.PHONY : CheatingAI.cpp.o
+
+CheatingAI.i: CheatingAI.cpp.i
+
+.PHONY : CheatingAI.i
+
+# target to preprocess a source file
+CheatingAI.cpp.i:
+	$(MAKE) -f CMakeFiles/BattleShip.dir/build.make CMakeFiles/BattleShip.dir/CheatingAI.cpp.i
+.PHONY : CheatingAI.cpp.i
+
+CheatingAI.s: CheatingAI.cpp.s
+
+.PHONY : CheatingAI.s
+
+# target to generate assembly for a file
+CheatingAI.cpp.s:
+	$(MAKE) -f CMakeFiles/BattleShip.dir/build.make CMakeFiles/BattleShip.dir/CheatingAI.cpp.s
+.PHONY : CheatingAI.cpp.s
+
 GameAttributes.o: GameAttributes.cpp.o
 
 .PHONY : GameAttributes.o
@@ -284,6 +311,33 @@ Player.s: Player.cpp.s
 Player.cpp.s:
 	$(MAKE) -f CMakeFiles/BattleShip.dir/build.make CMakeFiles/BattleShip.dir/Player.cpp.s
 .PHONY : Player.cpp.s
+
+RandomAI.o: RandomAI.cpp.o
+
+.PHONY : RandomAI.o
+
+# target to build an object file
+RandomAI.cpp.o:
+	$(MAKE) -f CMakeFiles/BattleShip.dir/build.make CMakeFiles/BattleShip.dir/RandomAI.cpp.o
+.PHONY : RandomAI.cpp.o
+
+RandomAI.i: RandomAI.cpp.i
+
+.PHONY : RandomAI.i
+
+# target to preprocess a source file
+RandomAI.cpp.i:
+	$(MAKE) -f CMakeFiles/BattleShip.dir/build.make CMakeFiles/BattleShip.dir/RandomAI.cpp.i
+.PHONY : RandomAI.cpp.i
+
+RandomAI.s: RandomAI.cpp.s
+
+.PHONY : RandomAI.s
+
+# target to generate assembly for a file
+RandomAI.cpp.s:
+	$(MAKE) -f CMakeFiles/BattleShip.dir/build.make CMakeFiles/BattleShip.dir/RandomAI.cpp.s
+.PHONY : RandomAI.cpp.s
 
 Ship.o: Ship.cpp.o
 
@@ -411,6 +465,9 @@ help:
 	@echo "... Board.o"
 	@echo "... Board.i"
 	@echo "... Board.s"
+	@echo "... CheatingAI.o"
+	@echo "... CheatingAI.i"
+	@echo "... CheatingAI.s"
 	@echo "... GameAttributes.o"
 	@echo "... GameAttributes.i"
 	@echo "... GameAttributes.s"
@@ -420,6 +477,9 @@ help:
 	@echo "... Player.o"
 	@echo "... Player.i"
 	@echo "... Player.s"
+	@echo "... RandomAI.o"
+	@echo "... RandomAI.i"
+	@echo "... RandomAI.s"
 	@echo "... Ship.o"
 	@echo "... Ship.i"
 	@echo "... Ship.s"

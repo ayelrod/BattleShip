@@ -3,6 +3,7 @@
 //
 
 #include "BattleShipGame.h"
+#include "AiPlayer.h"
 
 BattleShip::BattleShipGame::BattleShipGame(int numRows, int numCols, int numShips, std::vector<char>& shipChars,
                                            std::vector<int>& shipSizes, int gameType, int seed) : gameAttributes(GameAttributes(numRows, numCols, numShips, shipChars, shipSizes, gameType, seed))
@@ -29,12 +30,13 @@ void BattleShip::BattleShipGame::initializePlayers(GameAttributes& gameAttribute
 
     //if human vs human
     if(gameType == 1){
-        Player* player1 = new HumanPlayer(gameAttributes, ships, 1);
-        Player* player2 = new HumanPlayer(gameAttributes, ships, 2);
+        auto player1 = std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 1));
+        auto player2 = std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 2));
         this->players.push_back(player1);
         this->players.push_back(player2);
     }
     else if(gameType == 2){
-
+        auto player1 = std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 1));
+        Player* player2 = new AiPlayer();
     }
 }

@@ -6,14 +6,27 @@
 #include "Utility.h"
 #include "AiPlayer.h"
 #include "ShipPosition.h"
+#include "CheatingAI.h"
 int BattleShip::AiPlayer::nextAiId = 1;
 std::mt19937 BattleShip::AiPlayer::randomNumberGenerator((time(nullptr)));
 
 
 
-BattleShip::AiPlayer::AiPlayer(const BattleShip::GameAttributes& gameAttributes, BattleShip::View& view) :
+BattleShip::AiPlayer::AiPlayer(const BattleShip::GameAttributes& gameAttributes, std::vector<Ship> ships) :
     Player(gameAttributes, view), aiId(AiPlayer::nextAiId) {
-  nextAiId++;
+    int aiType = 0;
+    do{
+        std::cout << "What AI do you want" << std::endl;
+        std::cout << "1. Cheating AI" << std::endl;
+        std::cout << "2. Random AI" << std::endl;
+        std::cout << "3. Hunt Destroy AI" << std::endl;
+        std::cout << "Your choice: ";
+        std::cin >> aiType;
+    } while(aiType != 1 && aiType != 2 && aiType != 3);
+    if(aiType == 1){
+        CheatingAI(gameAttributes, ships);
+    }
+    nextAiId++;
 }
 
 
@@ -51,6 +64,10 @@ void BattleShip::AiPlayer::initializeName() {
 
 void BattleShip::AiPlayer::seed_random_number_generator(int seed) {
   BattleShip::AiPlayer::randomNumberGenerator.seed(seed);
+}
+
+void BattleShip::AiPlayer::setName(std::string name) {
+    return;
 }
 
 
