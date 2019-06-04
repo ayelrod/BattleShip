@@ -20,10 +20,13 @@ const BattleShip::ShipPosition &BattleShip::Ship::getPosition() const {
     return position;
 }
 
-bool BattleShip::Ship::getDestroyed() {
-    return destroyed;
+bool BattleShip::Ship::getDestroyed() const {
+    if(destroyed == false){
+        destroyed == true;
+        return false;
+    }
+    else{
+        return true;
+    }
 }
 
-void BattleShip::Ship::changeDestroyed() {
-    destroyed = true;
-}

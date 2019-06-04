@@ -84,7 +84,7 @@ BattleShip::Move BattleShip::BattleShipGame::getPosition(std::unique_ptr<Player>
 
 bool BattleShip::BattleShipGame::gameOver() {
     int numDestroyedShips = 0;
-    for(auto ship : players[0]->getShipHealths()){
+    for(auto& ship : players[0]->getShipHealths()){
         if(ship.second == 0){
             destroyedShip(ship.first);
             numDestroyedShips++;
@@ -94,7 +94,7 @@ bool BattleShip::BattleShipGame::gameOver() {
         }
     }
     numDestroyedShips = 0;
-    for(auto ship : players[1]->getShipHealths()){
+    for(auto& ship : players[1]->getShipHealths()){
         if(ship.second == 0){
             destroyedShip(ship.first);
             numDestroyedShips++;
@@ -104,7 +104,7 @@ bool BattleShip::BattleShipGame::gameOver() {
         }
     }
     return false;
-    
+
 }
 
 void BattleShip::BattleShipGame::printWinner(int currentTurn) {
@@ -118,8 +118,7 @@ void BattleShip::BattleShipGame::destroyedShip(const Ship& ship) {
     }
 
     if(ship.getDestroyed() == false){
-        std::cout << players[currentTurn]->getName() << " destoryed " << otherPlayer->getName() << "'s " << ship.getSymbol() << "!";
-        ship.changeDestroyed();
+        std::cout << players[currentTurn]->getName() << " destroyed " << otherPlayer->getName() << "'s " << ship.getSymbol() << "!";
     }
 
 }
