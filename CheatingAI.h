@@ -14,9 +14,9 @@ namespace BattleShip {
         virtual void initializeName() override;
         void setName(std::string name) override ;
         void placeShips() override;
-        Move getPosition(std::unique_ptr<Player>& otherPlayer) override;
+        Move getPosition(std::unique_ptr<BattleShip::Player>& otherPlayer) override;
         std::map<Ship, int> getShipHealths() override;
-        std::vector<Move> makeVector(std::unique_ptr<Player>& otherPlayer);
+        std::vector<Move> makeVector(std::unique_ptr<BattleShip::Player>& otherPlayer);
     protected:
         Board board;
         std::map<Ship, int> shipHealths;
@@ -24,6 +24,5 @@ namespace BattleShip {
         std::vector<Ship> ships;
     };
 }
-
 
 #endif //BATTLESHIP_CHEATINGAI_H

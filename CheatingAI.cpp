@@ -29,7 +29,7 @@ std::map<BattleShip::Ship, int> BattleShip::CheatingAI::getShipHealths() {
     return shipHealths;
 }
 
-std::vector<BattleShip::Move> BattleShip::CheatingAI::makeVector(std::unique_ptr<Player>& otherPlayer) {
+std::vector<BattleShip::Move> BattleShip::CheatingAI::makeVector(std::unique_ptr<BattleShip::Player>& otherPlayer) {
     std::vector<Move> possibleMoves;
     for(int i = 0; i < getBoard().getNumRows(); i++){
         for(int k = 0; k < getBoard().getNumCols(); k++){
@@ -44,7 +44,7 @@ std::vector<BattleShip::Move> BattleShip::CheatingAI::makeVector(std::unique_ptr
     return possibleMoves;
 }
 
-BattleShip::Move BattleShip::CheatingAI::getPosition(std::unique_ptr<Player>& otherPlayer) {
+BattleShip::Move BattleShip::CheatingAI::getPosition(std::unique_ptr<BattleShip::Player>& otherPlayer) {
     std::vector<Move> possibleMoves = makeVector(otherPlayer);
     int randInt = getRandInt(0, getBoard().getNumRows() - 1, randomNumberGenerator);
     return possibleMoves[randInt];

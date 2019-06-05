@@ -5,7 +5,6 @@
 #ifndef BATTLESHIP_MOVE_H
 #define BATTLESHIP_MOVE_H
 
-
 namespace BattleShip {
     class Move {
     public:
@@ -14,6 +13,5 @@ namespace BattleShip {
         int col;
     };
 }
-
 
 #endif //BATTLESHIP_MOVE_H

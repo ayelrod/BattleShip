@@ -55,18 +55,22 @@ void BattleShip::BattleShipGame::initializePlayers(GameAttributes& gameAttribute
     }
 }
 
-void BattleShip::BattleShipGame::takeTurn(std::vector<std::unique_ptr<Player>> players, int currentTurn) {
-    std::unique_ptr<Player>& player = players[currentTurn], otherPlayer;
+void BattleShip::BattleShipGame::takeTurn(std::vector<std::unique_ptr<BattleShip::Player>> players, int currentTurn) {
+    std::unique_ptr<BattleShip::Player>& player = players[currentTurn];
+    int otherTurn = 0;
     if(currentTurn == 1){
-        std::unique_ptr<Player>& otherPlayer = players[0];
+        otherTurn = 0;
     }
     else{
-        std::unique_ptr<Player>& otherPlayer = players[1];
+        otherTurn = 1;
     }
+    std::unique_ptr<BattleShip::Player>& otherPlayer = players[otherTurn];
+
     player->getBoard().displayFiring(player->getName());
     player->getBoard().displayPlacement(player->getName());
-    Move move = player->getPosition(otherPlayer);
-    player->getBoard().makeMove(move, otherPlayer, players[currentTurn]->getName());
+
+    Move move = player->getPosition(players[currentTurn], players[otherTurn]);
+    player->getBoard().makeMove(move, players[otherTurn], players[currentTurn]->getName());
 
 }
 
@@ -79,8 +83,8 @@ void BattleShip::BattleShipGame::changeTurn(int& currentTurn) {
     }
 }
 
-BattleShip::Move BattleShip::BattleShipGame::getPosition(std::unique_ptr<Player> &player) {
-    return player->getPosition();
+BattleShip::Move BattleShip::BattleShipGame::getPosition(std::unique_ptr<BattleShip::Player> &player) {
+    //return player->getPosition();
 }
 
 bool BattleShip::BattleShipGame::gameOver() {

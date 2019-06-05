@@ -13,6 +13,7 @@
 #include "Player.h"
 
 namespace BattleShip {
+    class Player;
     class Board {
     public:
         Board(const GameAttributes& gameAttributes);
@@ -24,8 +25,7 @@ namespace BattleShip {
         void AddShip(const Ship& ship, ShipPosition placement);
         std::vector<std::string> getFiringBoard(){ return firingBoard; }
         std::vector<std::string> getPlacementBoard(){ return placementBoard; }
-        void makeMove(Move move, std::unique_ptr<Player>& otherPlayer, std::string name);
-
+        void makeMove(BattleShip::Move move, std::unique_ptr<BattleShip::Player>& otherPlayer, std::string name);
     private:
         std::vector<std::string> firingBoard;
         std::vector<std::string> placementBoard;

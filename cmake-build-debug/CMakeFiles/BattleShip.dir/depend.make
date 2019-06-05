@@ -6,6 +6,7 @@ CMakeFiles/BattleShip.dir/AiPlayer.cpp.o: ../AiPlayer.h
 CMakeFiles/BattleShip.dir/AiPlayer.cpp.o: ../Board.h
 CMakeFiles/BattleShip.dir/AiPlayer.cpp.o: ../CheatingAI.h
 CMakeFiles/BattleShip.dir/AiPlayer.cpp.o: ../GameAttributes.h
+CMakeFiles/BattleShip.dir/AiPlayer.cpp.o: ../Move.h
 CMakeFiles/BattleShip.dir/AiPlayer.cpp.o: ../Player.h
 CMakeFiles/BattleShip.dir/AiPlayer.cpp.o: ../Ship.h
 CMakeFiles/BattleShip.dir/AiPlayer.cpp.o: ../ShipPosition.h
@@ -17,13 +18,17 @@ CMakeFiles/BattleShip.dir/BattleShipGame.cpp.o: ../BattleShipGame.h
 CMakeFiles/BattleShip.dir/BattleShipGame.cpp.o: ../Board.h
 CMakeFiles/BattleShip.dir/BattleShipGame.cpp.o: ../GameAttributes.h
 CMakeFiles/BattleShip.dir/BattleShipGame.cpp.o: ../HumanPlayer.h
+CMakeFiles/BattleShip.dir/BattleShipGame.cpp.o: ../Move.h
 CMakeFiles/BattleShip.dir/BattleShipGame.cpp.o: ../Player.h
 CMakeFiles/BattleShip.dir/BattleShipGame.cpp.o: ../Ship.h
 CMakeFiles/BattleShip.dir/BattleShipGame.cpp.o: ../ShipPosition.h
+CMakeFiles/BattleShip.dir/BattleShipGame.cpp.o: ../Utility.h
 
 CMakeFiles/BattleShip.dir/Board.cpp.o: ../Board.cpp
 CMakeFiles/BattleShip.dir/Board.cpp.o: ../Board.h
 CMakeFiles/BattleShip.dir/Board.cpp.o: ../GameAttributes.h
+CMakeFiles/BattleShip.dir/Board.cpp.o: ../Move.h
+CMakeFiles/BattleShip.dir/Board.cpp.o: ../Player.h
 CMakeFiles/BattleShip.dir/Board.cpp.o: ../Ship.h
 CMakeFiles/BattleShip.dir/Board.cpp.o: ../ShipPosition.h
 
@@ -32,9 +37,11 @@ CMakeFiles/BattleShip.dir/CheatingAI.cpp.o: ../Board.h
 CMakeFiles/BattleShip.dir/CheatingAI.cpp.o: ../CheatingAI.cpp
 CMakeFiles/BattleShip.dir/CheatingAI.cpp.o: ../CheatingAI.h
 CMakeFiles/BattleShip.dir/CheatingAI.cpp.o: ../GameAttributes.h
+CMakeFiles/BattleShip.dir/CheatingAI.cpp.o: ../Move.h
 CMakeFiles/BattleShip.dir/CheatingAI.cpp.o: ../Player.h
 CMakeFiles/BattleShip.dir/CheatingAI.cpp.o: ../Ship.h
 CMakeFiles/BattleShip.dir/CheatingAI.cpp.o: ../ShipPosition.h
+CMakeFiles/BattleShip.dir/CheatingAI.cpp.o: ../Utility.h
 
 CMakeFiles/BattleShip.dir/GameAttributes.cpp.o: ../GameAttributes.cpp
 CMakeFiles/BattleShip.dir/GameAttributes.cpp.o: ../GameAttributes.h
@@ -43,6 +50,7 @@ CMakeFiles/BattleShip.dir/HumanPlayer.cpp.o: ../Board.h
 CMakeFiles/BattleShip.dir/HumanPlayer.cpp.o: ../GameAttributes.h
 CMakeFiles/BattleShip.dir/HumanPlayer.cpp.o: ../HumanPlayer.cpp
 CMakeFiles/BattleShip.dir/HumanPlayer.cpp.o: ../HumanPlayer.h
+CMakeFiles/BattleShip.dir/HumanPlayer.cpp.o: ../Move.h
 CMakeFiles/BattleShip.dir/HumanPlayer.cpp.o: ../Player.h
 CMakeFiles/BattleShip.dir/HumanPlayer.cpp.o: ../Ship.h
 CMakeFiles/BattleShip.dir/HumanPlayer.cpp.o: ../ShipPosition.h
@@ -52,27 +60,36 @@ CMakeFiles/BattleShip.dir/HuntDestroyAI.cpp.o: ../Board.h
 CMakeFiles/BattleShip.dir/HuntDestroyAI.cpp.o: ../GameAttributes.h
 CMakeFiles/BattleShip.dir/HuntDestroyAI.cpp.o: ../HuntDestroyAI.cpp
 CMakeFiles/BattleShip.dir/HuntDestroyAI.cpp.o: ../HuntDestroyAI.h
+CMakeFiles/BattleShip.dir/HuntDestroyAI.cpp.o: ../Move.h
 CMakeFiles/BattleShip.dir/HuntDestroyAI.cpp.o: ../Player.h
 CMakeFiles/BattleShip.dir/HuntDestroyAI.cpp.o: ../Ship.h
 CMakeFiles/BattleShip.dir/HuntDestroyAI.cpp.o: ../ShipPosition.h
+CMakeFiles/BattleShip.dir/HuntDestroyAI.cpp.o: ../Utility.h
+
+CMakeFiles/BattleShip.dir/Move.cpp.o: ../Move.cpp
+CMakeFiles/BattleShip.dir/Move.cpp.o: ../Move.h
 
 CMakeFiles/BattleShip.dir/Player.cpp.o: ../AiPlayer.h
 CMakeFiles/BattleShip.dir/Player.cpp.o: ../Board.h
 CMakeFiles/BattleShip.dir/Player.cpp.o: ../GameAttributes.h
 CMakeFiles/BattleShip.dir/Player.cpp.o: ../HumanPlayer.h
+CMakeFiles/BattleShip.dir/Player.cpp.o: ../Move.h
 CMakeFiles/BattleShip.dir/Player.cpp.o: ../Player.cpp
 CMakeFiles/BattleShip.dir/Player.cpp.o: ../Player.h
 CMakeFiles/BattleShip.dir/Player.cpp.o: ../Ship.h
 CMakeFiles/BattleShip.dir/Player.cpp.o: ../ShipPosition.h
+CMakeFiles/BattleShip.dir/Player.cpp.o: ../Utility.h
 
 CMakeFiles/BattleShip.dir/RandomAI.cpp.o: ../AiPlayer.h
 CMakeFiles/BattleShip.dir/RandomAI.cpp.o: ../Board.h
 CMakeFiles/BattleShip.dir/RandomAI.cpp.o: ../GameAttributes.h
+CMakeFiles/BattleShip.dir/RandomAI.cpp.o: ../Move.h
 CMakeFiles/BattleShip.dir/RandomAI.cpp.o: ../Player.h
 CMakeFiles/BattleShip.dir/RandomAI.cpp.o: ../RandomAI.cpp
 CMakeFiles/BattleShip.dir/RandomAI.cpp.o: ../RandomAI.h
 CMakeFiles/BattleShip.dir/RandomAI.cpp.o: ../Ship.h
 CMakeFiles/BattleShip.dir/RandomAI.cpp.o: ../ShipPosition.h
+CMakeFiles/BattleShip.dir/RandomAI.cpp.o: ../Utility.h
 
 CMakeFiles/BattleShip.dir/Ship.cpp.o: ../Ship.cpp
 CMakeFiles/BattleShip.dir/Ship.cpp.o: ../Ship.h
@@ -89,8 +106,10 @@ CMakeFiles/BattleShip.dir/main.cpp.o: ../BattleShipGame.h
 CMakeFiles/BattleShip.dir/main.cpp.o: ../Board.h
 CMakeFiles/BattleShip.dir/main.cpp.o: ../GameAttributes.h
 CMakeFiles/BattleShip.dir/main.cpp.o: ../HumanPlayer.h
+CMakeFiles/BattleShip.dir/main.cpp.o: ../Move.h
 CMakeFiles/BattleShip.dir/main.cpp.o: ../Player.h
 CMakeFiles/BattleShip.dir/main.cpp.o: ../Ship.h
 CMakeFiles/BattleShip.dir/main.cpp.o: ../ShipPosition.h
+CMakeFiles/BattleShip.dir/main.cpp.o: ../Utility.h
 CMakeFiles/BattleShip.dir/main.cpp.o: ../main.cpp
 

@@ -12,21 +12,18 @@
 namespace BattleShip {
     class BattleShipGame {
     public:
-        BattleShipGame(int numRows, int numCols, int numShips, std::vector<char>& shipChars,
-                       std::vector<int>& shipSizes, int gameType, int seed);
+        BattleShipGame(int numRows, int numCols, int numShips, std::vector<char>& shipChars, std::vector<int>& shipSizes, int gameType, int seed);
         void playGame();
         void initializePlayers(GameAttributes& gameAttributes);
-        void takeTurn(std::vector<std::unique_ptr<Player>> players, int currentTurn);
+        void takeTurn(std::vector<std::unique_ptr<BattleShip::Player>> players, int currentTurn);
         void changeTurn(int& currentTurn);
-        //Move getPosition(std::unique_ptr<Player>& player, std::unique_ptr<Player> player);
         bool gameOver();
         void printWinner(int currentTurn);
-
+        Move getPosition(std::unique_ptr<BattleShip::Player>& otherPlayer);
     private:
-        std::vector<std::unique_ptr<Player>> players;
+        std::vector<std::unique_ptr<BattleShip::Player>> players;
         int currentTurn;
         GameAttributes gameAttributes;
     };
 }
-
 #endif //BATTLESHIP_BATTLESHIPGAME_H

@@ -63,7 +63,7 @@ void BattleShip::Board::displayPlacement(std::string name) {
     }
 }
 
-void BattleShip::Board::makeMove(BattleShip::Move move, std::unique_ptr<Player>& otherPlayer, std::string name) {
+void BattleShip::Board::makeMove(BattleShip::Move move, std::unique_ptr<BattleShip::Player>& otherPlayer, std::string name) {
     if(otherPlayer->getBoard().getPlacementBoard()[move.row][move.col] == '*'){
         this->firingBoard[move.row][move.col] = '0';
         otherPlayer->getBoard().firingBoard[move.row][move.col] = '0';
@@ -84,4 +84,3 @@ void BattleShip::Board::makeMove(BattleShip::Move move, std::unique_ptr<Player>&
         std::cout << name << " hit " << otherPlayer->getName() << "'s " << shipChar << "!";
     }
 }
-

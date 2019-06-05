@@ -20,15 +20,9 @@ namespace BattleShip {
         virtual void initializeName();
         virtual Board& getBoard();
         virtual std::string getName();
-        virtual Move getPosition(std::unique_ptr<Player> player, std::unique_ptr<Player> otherPlayer);
+        virtual Move getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer);
         virtual std::map<Ship, int> getShipHealths();
-    protected:
-//        Board board;
-//        std::map<Ship, int> shipHealths;
-//        std::string name;
-//        std::vector<Ship> ships;
     };
 }
-
 
 #endif //BATTLESHIP_PLAYER_H
