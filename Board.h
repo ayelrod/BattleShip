@@ -22,10 +22,9 @@ namespace BattleShip {
         int getNumCols();
         bool canPlaceShipAt(ShipPosition placement);
         void AddShip(const Ship& ship, ShipPosition placement);
-        std::vector<std::string> getFiringBoard(){return firingBoard;}
-        std::vector<std::string> getPlacementBoard(){return placementBoard;}
-        void makeMove(Move move, std::unique_ptr<Player> & otherPlayer, std::string name);
-
+        std::vector<std::string> getFiringBoard(){ return firingBoard; }
+        std::vector<std::string> getPlacementBoard(){ return placementBoard; }
+        void makeMove(Move move, std::unique_ptr<Player>& otherPlayer, std::string name);
 
     private:
         std::vector<std::string> firingBoard;

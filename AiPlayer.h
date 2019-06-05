@@ -6,6 +6,7 @@
 #define BATTLESHIP_AIPLAYER_H
 #include <random>
 #include "Player.h"
+#include "Utility.h"
 
 
 namespace BattleShip {
@@ -19,8 +20,9 @@ class AiPlayer : public Player {
     virtual void initializeName() override;
     virtual void setName(std::string name);
     std::string getName() override;
-    virtual Move getPosition();
-    virtual std::map<Ship, int> getShipHealths();
+    virtual Move getPosition(std::unique_ptr<Player>& otherPlayer);
+    virtual std::map<Ship, int> getShipHealths() override;
+
  protected:
     static std::mt19937 randomNumberGenerator;
 

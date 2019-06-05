@@ -13,8 +13,11 @@ namespace BattleShip{
         RandomAI(const GameAttributes& gameAttributes, std::vector<Ship> ships);
         virtual void initializeName();
         void setName(std::string name) override ;
-        Move getPosition() override;
+        Move getPosition(std::unique_ptr<Player>& otherPlayer) override;
+        std::vector<Move> makeVector();
         std::map<Ship, int> getShipHealths() override;
+
+
     protected:
         Board board;
         std::map<Ship, int> shipHealths;

@@ -12,6 +12,7 @@ BattleShip::BattleShipGame::BattleShipGame(int numRows, int numCols, int numShip
 }
 
 void BattleShip::BattleShipGame::playGame() {
+    BattleShip::AiPlayer::seed_random_number_generator(gameAttributes.getSeed());
     initializePlayers(gameAttributes);
     do {
         takeTurn(players, currentTurn);
@@ -64,7 +65,7 @@ void BattleShip::BattleShipGame::takeTurn(std::vector<std::unique_ptr<Player>> p
     }
     player->getBoard().displayFiring(player->getName());
     player->getBoard().displayPlacement(player->getName());
-    Move move = getPosition(player);
+    Move move = player->getPosition(otherPlayer);
     player->getBoard().makeMove(move, otherPlayer, players[currentTurn]->getName());
 
 }
@@ -86,7 +87,6 @@ bool BattleShip::BattleShipGame::gameOver() {
     int numDestroyedShips = 0;
     for(auto& ship : players[0]->getShipHealths()){
         if(ship.second == 0){
-            destroyedShip(ship.first);
             numDestroyedShips++;
         }
         if(numDestroyedShips == gameAttributes.getNumShips()){
@@ -96,7 +96,6 @@ bool BattleShip::BattleShipGame::gameOver() {
     numDestroyedShips = 0;
     for(auto& ship : players[1]->getShipHealths()){
         if(ship.second == 0){
-            destroyedShip(ship.first);
             numDestroyedShips++;
         }
         if(numDestroyedShips == gameAttributes.getNumShips()){
@@ -108,17 +107,6 @@ bool BattleShip::BattleShipGame::gameOver() {
 }
 
 void BattleShip::BattleShipGame::printWinner(int currentTurn) {
-    std::cout << " 1 won the game!" << std::endl;
+    std::cout << players[currentTurn]->getName() <<" won the game!" << std::endl;
 }
 
-void BattleShip::BattleShipGame::destroyedShip(const Ship& ship) {
-    std::unique_ptr<Player>& otherPlayer = players[1];
-    if (currentTurn != 0){
-        std::unique_ptr<Player>& otherPlayer = players[0];
-    }
-
-    if(ship.getDestroyed() == false){
-        std::cout << players[currentTurn]->getName() << " destroyed " << otherPlayer->getName() << "'s " << ship.getSymbol() << "!";
-    }
-
-}

@@ -71,6 +71,14 @@ void BattleShip::Board::makeMove(BattleShip::Move move, std::unique_ptr<Player>&
     }
     else{
         char shipChar = otherPlayer->getBoard().getPlacementBoard()[move.row][move.col];
+        for(auto ship : otherPlayer->getShipHealths()){
+            if(ship.first.getSymbol() == shipChar){
+                ship.second--;
+            }
+            if(ship.second == 0){
+                std::cout << name << " destroyed " << otherPlayer->getName() << "'s " << ship.first.getSymbol() << "!";
+            }
+        }
         this->firingBoard[move.row][move.col] = 'X';
         otherPlayer->getBoard().firingBoard[move.row][move.col] = 'X';
         std::cout << name << " hit " << otherPlayer->getName() << "'s " << shipChar << "!";
