@@ -6,11 +6,13 @@
 #define BATTLESHIP_PLAYER_H
 
 #include <map>
-#include "Board.h"
+//#include "Board.h"
 #include "Ship.h"
 #include "Move.h"
+#include "GameAttributes.h"
 
 namespace BattleShip {
+    class Board;
     class Player {
     public:
         Player();
@@ -20,8 +22,9 @@ namespace BattleShip {
         virtual void initializeName();
         virtual Board& getBoard();
         virtual std::string getName();
+        virtual const int getPlayerType();
         virtual Move getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer);
-        virtual std::map<Ship, int> getShipHealths();
+        virtual std::map<char, int> getShipHealths();
     };
 }
 

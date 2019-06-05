@@ -8,7 +8,7 @@ BattleShip::HuntDestroyAI::HuntDestroyAI(const BattleShip::GameAttributes &gameA
     :  ships(ships), board(gameAttributes) {
     this->initializeName();
     for(int i = 0; i < ships.size(); i++){
-        shipHealths[ships[i]] = gameAttributes.getShipSizes()[i];
+        shipHealths[ships[i].getSymbol()] = gameAttributes.getShipSizes()[i];
     }
     placeShips();
 }
@@ -34,11 +34,15 @@ std::vector<BattleShip::Move> BattleShip::HuntDestroyAI::makeVector() {
     return possibleMoves;
 }
 
-std::map<BattleShip::Ship, int> BattleShip::HuntDestroyAI::getShipHealths() {
+std::map<char, int> BattleShip::HuntDestroyAI::getShipHealths() {
     return shipHealths;
 }
 
 BattleShip::Move BattleShip::HuntDestroyAI::getPosition(std::unique_ptr<BattleShip::Player>& otherPlayer) {
 
     return AiPlayer::getPosition(otherPlayer);
+}
+
+BattleShip::Board &BattleShip::HuntDestroyAI::getBoard() {
+    return board;
 }

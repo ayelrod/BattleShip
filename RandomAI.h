@@ -14,15 +14,17 @@ namespace BattleShip{
         virtual void initializeName();
         void setName(std::string name) override ;
         Move getPosition(std::unique_ptr<Player>& otherPlayer) override;
+        BattleShip::Board& getBoard() override;
         std::vector<Move> makeVector();
-        std::map<Ship, int> getShipHealths() override;
+        std::map<char, int> getShipHealths() override;
 
 
     protected:
         Board board;
-        std::map<Ship, int> shipHealths;
+        std::map<char, int> shipHealths;
         std::string name;
         std::vector<Ship> ships;
+
     };
 }
 

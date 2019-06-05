@@ -4,7 +4,7 @@
 
 #include "HumanPlayer.h"
 
-BattleShip::HumanPlayer::HumanPlayer(const BattleShip::GameAttributes &gameAttributes, std::vector<BattleShip::Ship> ships, int playerNumber) : ships(ships),
+BattleShip::HumanPlayer::HumanPlayer(const BattleShip::GameAttributes &gameAttributes, std::vector<BattleShip::Ship>& ships, int playerNumber) : ships(ships),
     board(gameAttributes){
     //initialize boards
 
@@ -14,7 +14,8 @@ BattleShip::HumanPlayer::HumanPlayer(const BattleShip::GameAttributes &gameAttri
     std::cin >> this->name;
 
     for(int i = 0; i < ships.size(); i++){
-        shipHealths[ships[i]] = gameAttributes.getShipSizes()[i];
+        BattleShip::Ship ship = ships[i];
+        shipHealths[ship.getSymbol()] = gameAttributes.getShipSizes()[i];
     }
 
     placeShips();
@@ -77,8 +78,14 @@ bool BattleShip::HumanPlayer::validMove(int row, int col) {
     return getBoard().getFiringBoard()[row][col] == '*';
 }
 
-std::map<BattleShip::Ship, int> BattleShip::HumanPlayer::getShipHealths() {
+std::map<char, int> BattleShip::HumanPlayer::getShipHealths() {
     return shipHealths;
 }
+
+BattleShip::Board &BattleShip::HumanPlayer::getBoard() {
+    return board;
+}
+
+
 
 

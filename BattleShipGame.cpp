@@ -36,26 +36,26 @@ void BattleShip::BattleShipGame::initializePlayers(GameAttributes& gameAttribute
 
     //if human vs human
     if(gameType == 1){
-        auto player1 = std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 1));
-        auto player2 = std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 2));
-        this->players.push_back(player1);
-        this->players.push_back(player2);
+//        auto player1 = std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 1));
+//        auto player2 = std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 2));
+        this->players.push_back(std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 1)));
+        this->players.push_back(std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 2)));
     }
     else if(gameType == 2){
-        auto player1 = std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 1));
-        auto player2 = std::unique_ptr<Player>(new AiPlayer(gameAttributes, ships));
-        this->players.push_back(player1);
-        this->players.push_back(player2);
+//        auto player1 = std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 1));
+//        auto player2 = std::unique_ptr<Player>(new AiPlayer(gameAttributes, ships));
+        this->players.push_back(std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 1)));
+        this->players.push_back(std::unique_ptr<Player>(new AiPlayer(gameAttributes, ships)));
     }
     else{
-        auto player1 = std::unique_ptr<Player>(new AiPlayer(gameAttributes, ships));
-        auto player2 = std::unique_ptr<Player>(new AiPlayer(gameAttributes, ships));
-        this->players.push_back(player1);
-        this->players.push_back(player2);
+//        auto player1 = std::unique_ptr<Player>(new AiPlayer(gameAttributes, ships));
+//        auto player2 = std::unique_ptr<Player>(new AiPlayer(gameAttributes, ships));
+        this->players.push_back(std::unique_ptr<Player>(new AiPlayer(gameAttributes, ships)));
+        this->players.push_back(std::unique_ptr<Player>(new AiPlayer(gameAttributes, ships)));
     }
 }
 
-void BattleShip::BattleShipGame::takeTurn(std::vector<std::unique_ptr<BattleShip::Player>> players, int currentTurn) {
+void BattleShip::BattleShipGame::takeTurn(std::vector<std::unique_ptr<BattleShip::Player>>& players, int currentTurn) {
     std::unique_ptr<BattleShip::Player>& player = players[currentTurn];
     int otherTurn = 0;
     if(currentTurn == 1){

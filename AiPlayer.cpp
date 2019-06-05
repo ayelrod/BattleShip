@@ -77,3 +77,5 @@ void BattleShip::AiPlayer::setName(std::string name) {
 std::string BattleShip::AiPlayer::getName() {
     return name;
 }
+
+

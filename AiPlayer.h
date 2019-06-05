@@ -7,6 +7,7 @@
 #include <random>
 #include "Player.h"
 #include "Utility.h"
+#include "Board.h"
 
 
 namespace BattleShip {
@@ -18,10 +19,11 @@ class AiPlayer : public Player {
     static void seed_random_number_generator(int seed);
     virtual void placeShips() override;
     virtual void initializeName() override;
+    virtual BattleShip::Board& getBoard() override;
     virtual void setName(std::string name);
     std::string getName() override;
     virtual Move getPosition(std::unique_ptr<BattleShip::Player>& otherPlayer);
-    virtual std::map<Ship, int> getShipHealths() override;
+    virtual std::map<char, int> getShipHealths() override;
 
  protected:
     static std::mt19937 randomNumberGenerator;

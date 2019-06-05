@@ -14,3 +14,5 @@ BattleShip::Player::Player(const BattleShip::GameAttributes &gameAttributes, std
                            int playerNumber) {
     HumanPlayer(gameAttributes, ships, playerNumber);
 }
+
+

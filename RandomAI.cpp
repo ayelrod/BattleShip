@@ -8,7 +8,7 @@ BattleShip::RandomAI::RandomAI(const BattleShip::GameAttributes &gameAttributes,
         :  ships(ships), board(gameAttributes){
     this->initializeName();
     for(int i = 0; i < ships.size(); i++){
-        shipHealths[ships[i]] = gameAttributes.getShipSizes()[i];
+        shipHealths[ships[i].getSymbol()] = gameAttributes.getShipSizes()[i];
     }
     placeShips();
 }
@@ -21,7 +21,7 @@ void BattleShip::RandomAI::setName(std::string name) {
     this->name = name;
 }
 
-std::map<BattleShip::Ship, int> BattleShip::RandomAI::getShipHealths() {
+std::map<char, int> BattleShip::RandomAI::getShipHealths() {
     return shipHealths;
 }
 
@@ -42,5 +42,9 @@ std::vector<BattleShip::Move> BattleShip::RandomAI::makeVector() {
         }
     }
     return possibleMoves;
+}
+
+BattleShip::Board &BattleShip::RandomAI::getBoard() {
+    return board;
 }
 

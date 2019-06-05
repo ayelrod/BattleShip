@@ -72,15 +72,41 @@ void BattleShip::Board::makeMove(BattleShip::Move move, std::unique_ptr<BattleSh
     else{
         char shipChar = otherPlayer->getBoard().getPlacementBoard()[move.row][move.col];
         for(auto ship : otherPlayer->getShipHealths()){
-            if(ship.first.getSymbol() == shipChar){
+            if(ship.first == shipChar){
                 ship.second--;
             }
             if(ship.second == 0){
-                std::cout << name << " destroyed " << otherPlayer->getName() << "'s " << ship.first.getSymbol() << "!";
+                std::cout << name << " destroyed " << otherPlayer->getName() << "'s " << ship.first << "!";
             }
         }
         this->firingBoard[move.row][move.col] = 'X';
         otherPlayer->getBoard().firingBoard[move.row][move.col] = 'X';
         std::cout << name << " hit " << otherPlayer->getName() << "'s " << shipChar << "!";
     }
+}
+
+bool BattleShip::Board::canPlaceShipAt(BattleShip::ShipPosition placement) {
+    if(placement.rowStart < 0 || placement.rowStart > getNumRows()){
+        return false;
+    }
+    if(placement.rowEnd < 0 || placement.rowEnd > getNumRows()){
+        return false;
+    }
+    if(placement.colStart < 0 || placement.colStart > getNumCols()){
+        return false;
+    }
+    if(placement.colEnd < 0 || placement.colEnd > getNumCols()){
+        return false;
+    }
+    for(int row = placement.rowStart; row <= placement.rowEnd; row++){
+        if(placementBoard[row][placement.colStart] != '*'){
+            return false;
+        }
+    }
+    for(int col = placement.colStart; col <= placement.colEnd; col++){
+        if(placementBoard[placement.rowStart][col] != '*'){
+            return false;
+        }
+    }
+    return true;
 }
