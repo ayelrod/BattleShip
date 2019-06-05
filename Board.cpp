@@ -110,3 +110,7 @@ bool BattleShip::Board::canPlaceShipAt(BattleShip::ShipPosition placement) {
     }
     return true;
 }
+
+BattleShip::Board::Board() : firingBoard(0, 0), placementBoard(0,0) {
+
+}

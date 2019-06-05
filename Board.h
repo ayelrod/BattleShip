@@ -16,6 +16,7 @@ namespace BattleShip {
     class Player;
     class Board {
     public:
+        Board();
         Board(const GameAttributes& gameAttributes);
         void displayFiring(std::string name);
         void displayPlacement(std::string name);

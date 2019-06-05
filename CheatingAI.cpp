@@ -44,7 +44,7 @@ std::vector<BattleShip::Move> BattleShip::CheatingAI::makeVector(std::unique_ptr
     return possibleMoves;
 }
 
-BattleShip::Move BattleShip::CheatingAI::getPosition(std::unique_ptr<BattleShip::Player>& otherPlayer) {
+BattleShip::Move BattleShip::CheatingAI::getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer) {
     std::vector<Move> possibleMoves = makeVector(otherPlayer);
     int randInt = getRandInt(0, getBoard().getNumRows() - 1, randomNumberGenerator);
     return possibleMoves[randInt];

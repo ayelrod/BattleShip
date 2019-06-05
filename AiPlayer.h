@@ -19,11 +19,11 @@ class AiPlayer : public Player {
     static void seed_random_number_generator(int seed);
     virtual void placeShips() override;
     virtual void initializeName() override;
-    virtual BattleShip::Board& getBoard() override;
+    virtual BattleShip::Board& getBoard() override{Board board; return board;}
     virtual void setName(std::string name);
     std::string getName() override;
-    virtual Move getPosition(std::unique_ptr<BattleShip::Player>& otherPlayer);
-    virtual std::map<char, int> getShipHealths() override;
+    virtual Move getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer) override{Move move; return move;};
+    virtual std::map<char, int> getShipHealths() override{std::map<char, int> temp; return temp;};
 
  protected:
     static std::mt19937 randomNumberGenerator;
@@ -33,6 +33,7 @@ class AiPlayer : public Player {
     const int aiId;
     std::vector<Ship> ships;
     std::string name;
+    std::unique_ptr<Player>& playerType;
 };
 }
 #endif //BATTLESHIP_AIPLAYER_H

@@ -8,6 +8,7 @@
 namespace BattleShip {
     class Move {
     public:
+        Move();
         Move(int row, int col);
         int row;
         int col;

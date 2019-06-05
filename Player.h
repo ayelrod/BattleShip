@@ -16,15 +16,14 @@ namespace BattleShip {
     class Player {
     public:
         Player();
-        Player(const GameAttributes& gameAttributes, std::vector<Ship> ships);
-        Player(const GameAttributes& gameAttributes, std::vector<Ship> ships, int playerNumber);
-        virtual void placeShips();
-        virtual void initializeName();
-        virtual Board& getBoard();
-        virtual std::string getName();
-        virtual const int getPlayerType();
-        virtual Move getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer);
-        virtual std::map<char, int> getShipHealths();
+        //Player(const GameAttributes& gameAttributes, std::vector<Ship> ships);
+        //Player(const GameAttributes& gameAttributes, std::vector<Ship> ships, int playerNumber);
+        virtual void placeShips()=0;
+        virtual void initializeName()=0;
+        virtual Board& getBoard()=0;
+        virtual std::string getName()=0;
+        virtual Move getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer)=0;
+        virtual std::map<char, int> getShipHealths()=0;
     };
 }
 

@@ -62,7 +62,7 @@ std::string BattleShip::HumanPlayer::getName() {
     return name;
 }
 
-BattleShip::Move BattleShip::HumanPlayer::getPosition(std::unique_ptr<Player>& otherPlayer) {
+BattleShip::Move BattleShip::HumanPlayer::getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer) {
     int row, col;
     do {
         std::cout << getName() << ", where would you like to fire?" << std::endl;
@@ -84,6 +84,10 @@ std::map<char, int> BattleShip::HumanPlayer::getShipHealths() {
 
 BattleShip::Board &BattleShip::HumanPlayer::getBoard() {
     return board;
+}
+
+void BattleShip::HumanPlayer::initializeName() {
+    return;
 }
 
 

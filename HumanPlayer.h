@@ -13,16 +13,18 @@ namespace BattleShip {
         HumanPlayer(const GameAttributes& gameAttributes, std::vector<Ship>& ships, int playerNumber);
         void placeShips() override;
         std::string getName() override;
-        Move getPosition(std::unique_ptr<Player>& otherPlayer);
+        Move getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer);
         BattleShip::Board& getBoard() override;
         bool validMove(int row, int col);
         std::map<char, int> getShipHealths() override;
+        void initializeName() override;
         
     protected:
         Board board;
         std::map<char, int> shipHealths;
         std::string name;
         std::vector<BattleShip::Ship> ships;
+
 
     };
 }
