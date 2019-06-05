@@ -29,13 +29,13 @@ BattleShip::AiPlayer::AiPlayer(const BattleShip::GameAttributes& gameAttributes,
         std::cin >> aiType;
     } while(aiType != 1 && aiType != 2 && aiType != 3);
     if(aiType == 1){
-        this->playerType = std::unique_ptr<Player>(new CheatingAI(gameAttributes, ships));
+        std::unique_ptr<Player>(new CheatingAI(gameAttributes, ships));
     }
     else if(aiType == 2){
-        this->playerType = std::unique_ptr<Player>(new RandomAI(gameAttributes, ships));
+        std::unique_ptr<Player>(new RandomAI(gameAttributes, ships));
     }
     else{
-        this->playerType = std::unique_ptr<Player>(new HuntDestroyAI(gameAttributes, ships));
+        std::unique_ptr<Player>(new HuntDestroyAI(gameAttributes, ships));
     }
     nextAiId++;
 

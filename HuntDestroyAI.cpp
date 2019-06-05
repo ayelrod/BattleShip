@@ -38,9 +38,9 @@ std::map<char, int> BattleShip::HuntDestroyAI::getShipHealths() {
     return shipHealths;
 }
 
-BattleShip::Move BattleShip::HuntDestroyAI::getPosition(std::unique_ptr<BattleShip::Player>& otherPlayer) {
+BattleShip::Move BattleShip::HuntDestroyAI::getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer) {
 
-    return AiPlayer::getPosition(otherPlayer);
+    return AiPlayer::getPosition(player, otherPlayer);
 }
 
 BattleShip::Board &BattleShip::HuntDestroyAI::getBoard() {

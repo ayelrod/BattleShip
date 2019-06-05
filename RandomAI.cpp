@@ -25,7 +25,7 @@ std::map<char, int> BattleShip::RandomAI::getShipHealths() {
     return shipHealths;
 }
 
-BattleShip::Move BattleShip::RandomAI::getPosition(std::unique_ptr<Player>& otherPlayer) {
+BattleShip::Move BattleShip::RandomAI::getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer) {
     std::vector<Move> possibleMoves = makeVector();
     int randInt = getRandInt(0, getBoard().getNumRows() - 1, randomNumberGenerator);
     return possibleMoves[randInt];

@@ -4,6 +4,9 @@
 
 #include "BattleShipGame.h"
 #include "AiPlayer.h"
+#include "CheatingAI.h"
+#include "RandomAI.h"
+#include "HuntDestroyAI.h"
 
 BattleShip::BattleShipGame::BattleShipGame(int numRows, int numCols, int numShips, std::vector<char>& shipChars,
                                            std::vector<int>& shipSizes, int gameType, int seed) : gameAttributes(GameAttributes(numRows, numCols, numShips, shipChars, shipSizes, gameType, seed))
@@ -34,6 +37,10 @@ void BattleShip::BattleShipGame::initializePlayers(GameAttributes& gameAttribute
     //get game type
     int gameType = gameAttributes.getGameType();
 
+    /////CALLL THE CORRECT CONSTRUCTOR HERE INSTEAD
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
     //if human vs human
     if(gameType == 1){
 //        auto player1 = std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 1));
@@ -45,13 +52,66 @@ void BattleShip::BattleShipGame::initializePlayers(GameAttributes& gameAttribute
 //        auto player1 = std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 1));
 //        auto player2 = std::unique_ptr<Player>(new AiPlayer(gameAttributes, ships));
         this->players.push_back(std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 1)));
-        this->players.push_back(std::unique_ptr<Player>(new AiPlayer(gameAttributes, ships)));
+        int aiType = 0;
+        do{
+            std::cout << "What AI do you want" << std::endl;
+            std::cout << "1. Cheating AI" << std::endl;
+            std::cout << "2. Random AI" << std::endl;
+            std::cout << "3. Hunt Destroy AI" << std::endl;
+            std::cout << "Your choice: ";
+            std::cin >> aiType;
+        } while(aiType != 1 && aiType != 2 && aiType != 3);
+        if(aiType == 1) {
+            this->players.push_back(std::unique_ptr<Player>(new CheatingAI(gameAttributes, ships)));
+        }
+        else if(aiType == 2){
+            this->players.push_back(std::unique_ptr<Player>(new RandomAI(gameAttributes, ships)));
+        }
+        else{
+            this->players.push_back(std::unique_ptr<Player>(new HuntDestroyAI(gameAttributes, ships)));
+        }
     }
     else{
 //        auto player1 = std::unique_ptr<Player>(new AiPlayer(gameAttributes, ships));
 //        auto player2 = std::unique_ptr<Player>(new AiPlayer(gameAttributes, ships));
-        this->players.push_back(std::unique_ptr<Player>(new AiPlayer(gameAttributes, ships)));
-        this->players.push_back(std::unique_ptr<Player>(new AiPlayer(gameAttributes, ships)));
+        //this->players.push_back(std::unique_ptr<Player>(new AiPlayer(gameAttributes, ships)));
+        int aiType = 0;
+        do{
+            std::cout << "What AI do you want" << std::endl;
+            std::cout << "1. Cheating AI" << std::endl;
+            std::cout << "2. Random AI" << std::endl;
+            std::cout << "3. Hunt Destroy AI" << std::endl;
+            std::cout << "Your choice: ";
+            std::cin >> aiType;
+        } while(aiType != 1 && aiType != 2 && aiType != 3);
+        if(aiType == 1) {
+            this->players.push_back(std::unique_ptr<Player>(new CheatingAI(gameAttributes, ships)));
+        }
+        else if(aiType == 2){
+            this->players.push_back(std::unique_ptr<Player>(new RandomAI(gameAttributes, ships)));
+        }
+        else{
+            this->players.push_back(std::unique_ptr<Player>(new HuntDestroyAI(gameAttributes, ships)));
+        }
+        aiType = 0;
+        do{
+            std::cout << "What AI do you want" << std::endl;
+            std::cout << "1. Cheating AI" << std::endl;
+            std::cout << "2. Random AI" << std::endl;
+            std::cout << "3. Hunt Destroy AI" << std::endl;
+            std::cout << "Your choice: ";
+            std::cin >> aiType;
+        } while(aiType != 1 && aiType != 2 && aiType != 3);
+        if(aiType == 1) {
+            this->players.push_back(std::unique_ptr<Player>(new CheatingAI(gameAttributes, ships)));
+        }
+        else if(aiType == 2){
+            this->players.push_back(std::unique_ptr<Player>(new RandomAI(gameAttributes, ships)));
+        }
+        else{
+            this->players.push_back(std::unique_ptr<Player>(new HuntDestroyAI(gameAttributes, ships)));
+        }
+        //this->players.push_back(std::unique_ptr<Player>(new AiPlayer(gameAttributes, ships)));
     }
 }
 

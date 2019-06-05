@@ -33,7 +33,6 @@ class AiPlayer : public Player {
     const int aiId;
     std::vector<Ship> ships;
     std::string name;
-    std::unique_ptr<Player>& playerType;
 };
 }
 #endif //BATTLESHIP_AIPLAYER_H
