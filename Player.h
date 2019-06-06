@@ -16,7 +16,7 @@ namespace BattleShip {
     class Player {
     public:
         //Player();
-        virtual ~Player()=0;
+        virtual ~Player();
         //Player(const GameAttributes& gameAttributes, std::vector<Ship> ships);
         //Player(const GameAttributes& gameAttributes, std::vector<Ship> ships, int playerNumber);
         virtual void placeShips()=0;

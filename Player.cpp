@@ -16,3 +16,6 @@
 //}
 
 
+BattleShip::Player::~Player() {
+
+}

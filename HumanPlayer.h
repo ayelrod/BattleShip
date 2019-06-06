@@ -25,8 +25,6 @@ namespace BattleShip {
         std::map<char, int> shipHealths;
         std::string name;
         std::vector<BattleShip::Ship> ships;
-
-
     };
 }
 
