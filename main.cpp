@@ -37,7 +37,6 @@ int main(int argC, char** argV) {
         std::cin >> gameType;
     } while(gameType != 1 && gameType != 2 && gameType != 3);
 
-
     //create the game
     BattleShip::BattleShipGame game(numRows, numCols, numShips, shipChars, shipSizes, gameType, seed);
 

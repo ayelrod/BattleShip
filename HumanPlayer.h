@@ -28,5 +28,4 @@ namespace BattleShip {
     };
 }
 
-
 #endif //BATTLESHIP_HUMANPLAYER_H

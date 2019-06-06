@@ -13,27 +13,27 @@
 namespace BattleShip {
 class Move;
 class AiPlayer : public Player {
- public:
-    AiPlayer();
-    ~AiPlayer() override;
-    AiPlayer(const BattleShip::GameAttributes& gameAttributes, std::vector<Ship> ships);
-    static void seed_random_number_generator(int seed);
-    virtual void placeShips() override;
-    virtual void initializeName() override;
-    virtual BattleShip::Board& getBoard() override=0;
-    virtual void setName(std::string name);
-    std::string getName() override;
-    virtual Move getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer) override{Move move; return move;};
-    virtual std::map<char, int> getShipHealths() override{std::map<char, int> temp; return temp;};
+     public:
+        AiPlayer();
+        ~AiPlayer() override;
+        AiPlayer(const BattleShip::GameAttributes& gameAttributes, std::vector<Ship> ships);
+        static void seed_random_number_generator(int seed);
+        virtual void placeShips() override;
+        virtual void initializeName() override;
+        virtual BattleShip::Board& getBoard() override=0;
+        virtual void setName(std::string name);
+        std::string getName() override;
+        virtual Move getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer) override{Move move; return move;};
+        virtual std::map<char, int> getShipHealths() override{std::map<char, int> temp; return temp;};
 
- protected:
-    static std::mt19937 randomNumberGenerator;
+     protected:
+        static std::mt19937 randomNumberGenerator;
 
- private:
-    static int nextAiId;
-    const int aiId;
-    std::vector<Ship> ships;
-    std::string name;
-};
+     private:
+        static int nextAiId;
+        const int aiId;
+        std::vector<Ship> ships;
+        std::string name;
+    };
 }
 #endif //BATTLESHIP_AIPLAYER_H

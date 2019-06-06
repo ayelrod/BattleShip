@@ -27,5 +27,4 @@ namespace BattleShip {
     };
 }
 
-
 #endif //BATTLESHIP_HUNTDESTROYAI_H

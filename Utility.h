@@ -46,6 +46,4 @@ int getRandInt(int min, int max, RandomGeneratorType& generator){
 
 }
 
-
-
 #endif //BATTLESHIP_UTILITY_H

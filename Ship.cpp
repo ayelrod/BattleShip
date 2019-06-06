@@ -19,6 +19,3 @@ char BattleShip::Ship::getSymbol() const {
 const BattleShip::ShipPosition &BattleShip::Ship::getPosition() const {
     return position;
 }
-
-
-

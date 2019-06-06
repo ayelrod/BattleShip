@@ -30,5 +30,4 @@ namespace BattleShip {
     };
 }
 
-
 #endif //BATTLESHIP_GAMEATTRIBUTES_H

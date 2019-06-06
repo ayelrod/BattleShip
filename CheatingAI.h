@@ -6,7 +6,6 @@
 #define BATTLESHIP_CHEATINGAI_H
 #include "AiPlayer.h"
 
-
 namespace BattleShip {
     class CheatingAI : public AiPlayer {
     public:

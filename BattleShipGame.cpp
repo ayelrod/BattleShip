@@ -169,4 +169,3 @@ bool BattleShip::BattleShipGame::gameOver() {
 void BattleShip::BattleShipGame::printWinner(int currentTurn) {
     std::cout << players[currentTurn]->getName() <<" won the game!" << std::endl;
 }
-
