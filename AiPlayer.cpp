@@ -69,21 +69,22 @@ void BattleShip::AiPlayer::placeShips() {
 }
 
 void BattleShip::AiPlayer::initializeName() {
-  std::stringstream name;
-  name << "AI " << aiId;
-  setName(name.str());
+  std::stringstream tempName;
+  tempName << "AI " << aiId;
+  setName(tempName.str());
 }
 
 void BattleShip::AiPlayer::seed_random_number_generator(int seed) {
   BattleShip::AiPlayer::randomNumberGenerator.seed(seed);
 }
 
-void BattleShip::AiPlayer::setName(std::string name) {
-    this->name = name;
+void BattleShip::AiPlayer::setName(std::string tempName) {
+    this->name = tempName;
 }
 
 std::string BattleShip::AiPlayer::getName() {
     return name;
 }
+
 
 

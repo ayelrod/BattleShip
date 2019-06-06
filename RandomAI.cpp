@@ -5,7 +5,7 @@
 #include "RandomAI.h"
 
 BattleShip::RandomAI::RandomAI(const BattleShip::GameAttributes &gameAttributes, std::vector<BattleShip::Ship> ships)
-        :  ships(ships), board(gameAttributes){
+        :  board(gameAttributes),ships(ships){
     this->initializeName();
     for(int i = 0; i < ships.size(); i++){
         shipHealths[ships[i].getSymbol()] = gameAttributes.getShipSizes()[i];

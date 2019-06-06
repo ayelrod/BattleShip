@@ -10,9 +10,9 @@
 //    AiPlayer();
 //}
 
-BattleShip::Player::Player(const BattleShip::GameAttributes &gameAttributes, std::vector<BattleShip::Ship> ships,
-                           int playerNumber) {
-    HumanPlayer(gameAttributes, ships, playerNumber);
-}
+//BattleShip::Player::Player(const BattleShip::GameAttributes &gameAttributes, std::vector<BattleShip::Ship> ships,
+//                           int playerNumber) {
+//    HumanPlayer(gameAttributes, ships, playerNumber);
+//}
 
 

@@ -4,8 +4,8 @@
 
 #include "HumanPlayer.h"
 
-BattleShip::HumanPlayer::HumanPlayer(const BattleShip::GameAttributes &gameAttributes, std::vector<BattleShip::Ship>& ships, int playerNumber) : ships(ships),
-    board(gameAttributes){
+BattleShip::HumanPlayer::HumanPlayer(const BattleShip::GameAttributes &gameAttributes, std::vector<BattleShip::Ship>& ships, int playerNumber) :
+        board(gameAttributes),ships(ships){
     //initialize boards
 
 
@@ -23,8 +23,8 @@ BattleShip::HumanPlayer::HumanPlayer(const BattleShip::GameAttributes &gameAttri
 
 void BattleShip::HumanPlayer::placeShips() {
     char orientation;
-    const int numRows = getBoard().getNumRows();
-    const int numCols = getBoard().getNumCols();
+//    const int numRows = getBoard().getNumRows();
+//    const int numCols = getBoard().getNumCols();
 
     ShipPosition placement;
     for(const auto& ship : ships) {
@@ -90,6 +90,4 @@ void BattleShip::HumanPlayer::initializeName() {
     return;
 }
 
-
-
-
+//BattleShip::HumanPlayer::~HumanPlayer()=default;

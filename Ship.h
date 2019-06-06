@@ -16,7 +16,7 @@ namespace BattleShip {
 
 
     private:
-        bool destroyed;
+        //bool destroyed;
         const int size;
         const char symbol;
         ShipPosition position;

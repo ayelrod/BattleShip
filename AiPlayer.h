@@ -19,7 +19,7 @@ class AiPlayer : public Player {
     static void seed_random_number_generator(int seed);
     virtual void placeShips() override;
     virtual void initializeName() override;
-    virtual BattleShip::Board& getBoard() override{Board board; return board;}
+    virtual BattleShip::Board& getBoard() override=0;
     virtual void setName(std::string name);
     std::string getName() override;
     virtual Move getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer) override{Move move; return move;};

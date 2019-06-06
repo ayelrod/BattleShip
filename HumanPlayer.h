@@ -11,9 +11,10 @@ namespace BattleShip {
     class HumanPlayer : public Player {
     public:
         HumanPlayer(const GameAttributes& gameAttributes, std::vector<Ship>& ships, int playerNumber);
+        //~HumanPlayer() override;
         void placeShips() override;
         std::string getName() override;
-        Move getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer);
+        Move getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer) override;
         BattleShip::Board& getBoard() override;
         bool validMove(int row, int col);
         std::map<char, int> getShipHealths() override;

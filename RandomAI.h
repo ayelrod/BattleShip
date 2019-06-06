@@ -11,7 +11,7 @@ namespace BattleShip{
     class RandomAI : public AiPlayer {
     public:
         RandomAI(const GameAttributes& gameAttributes, std::vector<Ship> ships);
-        virtual void initializeName();
+        virtual void initializeName() override;
         void setName(std::string name) override ;
         Move getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer) override;
         BattleShip::Board& getBoard() override;

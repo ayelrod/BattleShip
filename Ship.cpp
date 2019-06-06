@@ -4,7 +4,7 @@
 
 #include "Ship.h"
 
-BattleShip::Ship::Ship(int size, char symbol, BattleShip::ShipPosition position) : size(size), symbol(symbol), position(position) , destroyed(false){
+BattleShip::Ship::Ship(int size, char symbol, BattleShip::ShipPosition position) :  size(size), symbol(symbol), position(position){
 
 }
 

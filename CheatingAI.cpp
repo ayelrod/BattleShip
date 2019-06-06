@@ -5,7 +5,7 @@
 #include "CheatingAI.h"
 
 BattleShip::CheatingAI::CheatingAI(const BattleShip::GameAttributes &gameAttributes, std::vector<BattleShip::Ship> ships)
-        : ships(ships), board(gameAttributes){
+        : board(gameAttributes), ships(ships){
     this->initializeName();
     for(int i = 0; i < ships.size(); i++){
         shipHealths[ships[i].getSymbol()] = gameAttributes.getShipSizes()[i];
@@ -53,3 +53,5 @@ BattleShip::Move BattleShip::CheatingAI::getPosition(std::unique_ptr<BattleShip:
 BattleShip::Board &BattleShip::CheatingAI::getBoard() {
     return board;
 }
+
+

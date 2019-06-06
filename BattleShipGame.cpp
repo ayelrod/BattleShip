@@ -9,8 +9,8 @@
 #include "HuntDestroyAI.h"
 
 BattleShip::BattleShipGame::BattleShipGame(int numRows, int numCols, int numShips, std::vector<char>& shipChars,
-                                           std::vector<int>& shipSizes, int gameType, int seed) : gameAttributes(GameAttributes(numRows, numCols, numShips, shipChars, shipSizes, gameType, seed))
-                                           , currentTurn(0){
+                                           std::vector<int>& shipSizes, int gameType, int seed) : currentTurn(0),
+                                           gameAttributes(GameAttributes(numRows, numCols, numShips, shipChars, shipSizes, gameType, seed)){
 
 }
 
@@ -124,7 +124,7 @@ void BattleShip::BattleShipGame::takeTurn(std::vector<std::unique_ptr<BattleShip
     else{
         otherTurn = 1;
     }
-    std::unique_ptr<BattleShip::Player>& otherPlayer = players[otherTurn];
+    //std::unique_ptr<BattleShip::Player>& otherPlayer = players[otherTurn];
 
     player->getBoard().displayFiring(player->getName());
     player->getBoard().displayPlacement(player->getName());
@@ -143,9 +143,9 @@ void BattleShip::BattleShipGame::changeTurn(int& currentTurn) {
     }
 }
 
-BattleShip::Move BattleShip::BattleShipGame::getPosition(std::unique_ptr<BattleShip::Player> &player) {
-    //return player->getPosition();
-}
+//BattleShip::Move BattleShip::BattleShipGame::getPosition(std::unique_ptr<BattleShip::Player> &player) {
+//    return player->getPosition();
+//}
 
 bool BattleShip::BattleShipGame::gameOver() {
     int numDestroyedShips = 0;

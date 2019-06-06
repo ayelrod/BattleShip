@@ -19,7 +19,7 @@ namespace BattleShip {
         void changeTurn(int& currentTurn);
         bool gameOver();
         void printWinner(int currentTurn);
-        Move getPosition(std::unique_ptr<BattleShip::Player>& otherPlayer);
+        //Move getPosition(std::unique_ptr<BattleShip::Player>& otherPlayer);
     private:
         std::vector<std::unique_ptr<BattleShip::Player>> players;
         int currentTurn;
