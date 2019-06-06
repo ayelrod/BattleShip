@@ -38,7 +38,6 @@ BattleShip::AiPlayer::AiPlayer(const BattleShip::GameAttributes& gameAttributes,
         std::unique_ptr<Player>(new HuntDestroyAI(gameAttributes, ships));
     }
     nextAiId++;
-
 }
 
 void BattleShip::AiPlayer::placeShips() {

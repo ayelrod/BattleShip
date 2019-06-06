@@ -37,10 +37,6 @@ void BattleShip::BattleShipGame::initializePlayers(GameAttributes& gameAttribute
     //get game type
     int gameType = gameAttributes.getGameType();
 
-    /////CALLL THE CORRECT CONSTRUCTOR HERE INSTEAD
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
     //if human vs human
     if(gameType == 1){
 //        auto player1 = std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 1));

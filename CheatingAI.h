@@ -24,8 +24,6 @@ namespace BattleShip {
         std::map<char, int> shipHealths;
         std::string name;
         std::vector<Ship> ships;
-
     };
 }
-
 #endif //BATTLESHIP_CHEATINGAI_H

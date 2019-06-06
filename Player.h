@@ -27,5 +27,4 @@ namespace BattleShip {
         virtual std::map<char, int> getShipHealths()=0;
     };
 }
-
 #endif //BATTLESHIP_PLAYER_H
