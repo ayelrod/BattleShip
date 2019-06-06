@@ -86,5 +86,9 @@ std::string BattleShip::AiPlayer::getName() {
     return name;
 }
 
+BattleShip::AiPlayer::~AiPlayer() {
+    delete this;
+}
+
 
 

@@ -90,4 +90,8 @@ void BattleShip::HumanPlayer::initializeName() {
     return;
 }
 
+BattleShip::HumanPlayer::~HumanPlayer() {
+    delete this;
+}
+
 //BattleShip::HumanPlayer::~HumanPlayer()=default;

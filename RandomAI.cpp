@@ -48,3 +48,7 @@ BattleShip::Board &BattleShip::RandomAI::getBoard() {
     return board;
 }
 
+BattleShip::RandomAI::~RandomAI() {
+    delete this;
+}
+

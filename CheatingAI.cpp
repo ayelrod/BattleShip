@@ -54,4 +54,8 @@ BattleShip::Board &BattleShip::CheatingAI::getBoard() {
     return board;
 }
 
+BattleShip::CheatingAI::~CheatingAI() {
+    delete this;
+}
+
 

@@ -11,6 +11,7 @@ namespace BattleShip {
     class CheatingAI : public AiPlayer {
     public:
         CheatingAI(const GameAttributes& gameAttributes, std::vector<Ship> ships);
+        ~CheatingAI() override;
         virtual void initializeName() override;
         void setName(std::string name) override ;
         void placeShips() override;

@@ -10,6 +10,7 @@ namespace BattleShip {
     class HuntDestroyAI : public AiPlayer{
     public:
         HuntDestroyAI(const GameAttributes& gameAttributes, std::vector<Ship> ships);
+        ~HuntDestroyAI() override;
         virtual void initializeName() override;
         void setName(std::string name) override;
         Move getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer) override;

@@ -46,3 +46,7 @@ BattleShip::Move BattleShip::HuntDestroyAI::getPosition(std::unique_ptr<BattleSh
 BattleShip::Board &BattleShip::HuntDestroyAI::getBoard() {
     return board;
 }
+
+BattleShip::HuntDestroyAI::~HuntDestroyAI() {
+    delete this;
+}
