@@ -29,12 +29,13 @@ std::map<char, int> BattleShip::CheatingAI::getShipHealths() {
     return shipHealths;
 }
 
+// used to return: std::vector<BattleShip::Move> possibleMoves and not take reference to possibleMoves
 std::vector<BattleShip::Move> BattleShip::CheatingAI::makeVector(std::unique_ptr<BattleShip::Player>& otherPlayer) {
     std::vector<Move> possibleMoves;
     for(int i = 0; i < getBoard().getNumRows(); i++){
         for(int k = 0; k < getBoard().getNumCols(); k++){
             for(auto ship : shipHealths) {
-                if (otherPlayer->getBoard().getFiringBoard()[i][k] == ship.first) {
+                if (otherPlayer->getBoard().getPlacementBoard()[i][k] == ship.first) {
                     Move temp(i, k);
                     possibleMoves.push_back(temp);
                 }
