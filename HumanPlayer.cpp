@@ -8,7 +8,6 @@ BattleShip::HumanPlayer::HumanPlayer(const BattleShip::GameAttributes &gameAttri
         board(gameAttributes),ships(ships){
     //initialize boards
 
-
     //get name
     std::cout << "Player " << playerNumber << ", please enter your name: ";
     std::cin >> this->name;
@@ -18,7 +17,7 @@ BattleShip::HumanPlayer::HumanPlayer(const BattleShip::GameAttributes &gameAttri
         shipHealths[ship.getSymbol()] = gameAttributes.getShipSizes()[i];
     }
 
-    placeShips();
+    this->placeShips();
 }
 
 void BattleShip::HumanPlayer::placeShips() {
@@ -27,7 +26,9 @@ void BattleShip::HumanPlayer::placeShips() {
 //    const int numCols = getBoard().getNumCols();
 
     ShipPosition placement;
+    getBoard().displayPlacement(this->name);
     for(const auto& ship : ships) {
+        //getBoard().displayPlacement(this->name);
         do {
             std::cout<< this->name << ", do you want to place " << ship.getSymbol() << " horizontally or vertically?" << std::endl;
             std::cout << "Your choice: ";

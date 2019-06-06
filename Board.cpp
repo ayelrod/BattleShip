@@ -32,13 +32,13 @@ void BattleShip::Board::displayFiring(std::string name) {
     }
     std::cout << std::endl;
 
-    int rowIndex = getNumRows() - 1;
-    for (const auto& row : placementBoard) {
+    int rowIndex = 0;
+    for (const auto& row : firingBoard) {
         std::cout << rowIndex << ' ';
         for(const auto& elem : row){
             std::cout << elem << ' ';
         }
-        rowIndex--;
+        rowIndex++;
         std::cout << std::endl;
     }
 }
@@ -52,13 +52,13 @@ void BattleShip::Board::displayPlacement(std::string name) {
     }
     std::cout << std::endl;
 
-    int rowIndex = getNumRows() - 1;
+    int rowIndex = 0;
     for (const auto& row : placementBoard) {
         std::cout << rowIndex << ' ';
         for(const auto& elem : row){
             std::cout << elem << ' ';
         }
-        rowIndex--;
+        rowIndex++;
         std::cout << std::endl;
     }
 }
@@ -66,22 +66,25 @@ void BattleShip::Board::displayPlacement(std::string name) {
 void BattleShip::Board::makeMove(BattleShip::Move move, std::unique_ptr<BattleShip::Player>& otherPlayer, std::string name) {
     if(otherPlayer->getBoard().getPlacementBoard()[move.row][move.col] == '*'){
         this->firingBoard[move.row][move.col] = '0';
-        otherPlayer->getBoard().firingBoard[move.row][move.col] = '0';
+        otherPlayer->getBoard().placementBoard[move.row][move.col] = '0';
         std::cout << "You missed." << std::endl;
     }
     else{
         char shipChar = otherPlayer->getBoard().getPlacementBoard()[move.row][move.col];
-        for(auto ship : otherPlayer->getShipHealths()){
+        for(auto& ship : otherPlayer->getShipHealths()){
             if(ship.first == shipChar){
-                ship.second--;
+                ship.second = ship.second - 1;
             }
-            if(ship.second == 0){
-                std::cout << name << " destroyed " << otherPlayer->getName() << "'s " << ship.first << "!";
-            }
+//            if(ship.second == 0){
+//                std::cout << name << " destroyed " << otherPlayer->getName() << "'s " << ship.first << "!" << std::endl;
+//            }
         }
         this->firingBoard[move.row][move.col] = 'X';
-        otherPlayer->getBoard().firingBoard[move.row][move.col] = 'X';
-        std::cout << name << " hit " << otherPlayer->getName() << "'s " << shipChar << "!";
+        otherPlayer->getBoard().placementBoard[move.row][move.col] = 'X';
+        std::cout << name << " hit " << otherPlayer->getName() << "'s " << shipChar << "!" << std::endl;
+        if(otherPlayer->getShipHealths()[shipChar] == 0){
+            std::cout << name << " destroyed " << otherPlayer->getName() << "'s " << shipChar << "!" << std::endl;
+        }
     }
 }
 

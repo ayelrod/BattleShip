@@ -31,7 +31,7 @@ void BattleShip::BattleShipGame::initializePlayers(GameAttributes& gameAttribute
     std::vector<Ship> ships;
     //create vector of ships
     for(int i = 0; i < gameAttributes.getNumShips(); i++){
-        ships.emplace_back(Ship(gameAttributes.getShipChars()[i], gameAttributes.getShipSizes()[i], tempPosition));
+        ships.emplace_back(Ship(gameAttributes.getShipSizes()[i], gameAttributes.getShipChars()[i], tempPosition));
     }
 
     //get game type
