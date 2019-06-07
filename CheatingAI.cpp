@@ -38,6 +38,9 @@ std::vector<BattleShip::Move> BattleShip::CheatingAI::makeVector(std::unique_ptr
                     Move temp(i, k);
                     possibleMoves.push_back(temp);
                 }
+                else{
+                    continue;
+                }
             }
         }
     }
