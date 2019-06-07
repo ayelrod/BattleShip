@@ -63,7 +63,7 @@ void BattleShip::Board::displayPlacement(std::string name) {
     }
 }
 
-void BattleShip::Board::makeMove(BattleShip::Move move, std::unique_ptr<BattleShip::Player>& otherPlayer, std::string name) {
+void BattleShip::Board::makeMove(BattleShip::Move& move, std::unique_ptr<BattleShip::Player>& otherPlayer, std::string name) {
     if(otherPlayer->getBoard().getPlacementBoard()[move.row][move.col] == '*'){
         this->firingBoard[move.row][move.col] = '0';
         otherPlayer->getBoard().placementBoard[move.row][move.col] = '0';
@@ -73,7 +73,9 @@ void BattleShip::Board::makeMove(BattleShip::Move move, std::unique_ptr<BattleSh
         char shipChar = otherPlayer->getBoard().getPlacementBoard()[move.row][move.col];
         for(auto& ship : otherPlayer->getShipHealths()){
             if(ship.first == shipChar){
-                ship.second = ship.second - 1;
+//                std::cout << "before: " << ship.second << std::endl;
+//                ship.second = ship.second - 1;                            // THIS ONLY TEMPORARILY DECREMENTS SHIP.SECOND, NEXT FIRING IT RESETS!
+//                std::cout << "after: " << ship.second << std::endl;
             }
 //            if(ship.second == 0){
 //                std::cout << name << " destroyed " << otherPlayer->getName() << "'s " << ship.first << "!" << std::endl;

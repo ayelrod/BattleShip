@@ -16,17 +16,16 @@ BattleShip::BattleShipGame::BattleShipGame(int numRows, int numCols, int numShip
 
 void BattleShip::BattleShipGame::playGame() {
     BattleShip::AiPlayer::seed_random_number_generator(gameAttributes.getSeed());
-    initializePlayers(gameAttributes);
+    initializePlayers();
     do {
-        takeTurn(players, currentTurn);
-        changeTurn(currentTurn);
+        takeTurn(players, currentTurn);     // takeTurn now calls changeTurn in function
     }while(!gameOver());
     changeTurn(currentTurn);
     printWinner(currentTurn);
 
 }
 
-void BattleShip::BattleShipGame::initializePlayers(GameAttributes& gameAttributes) {
+void BattleShip::BattleShipGame::initializePlayers(){
     ShipPosition tempPosition;
     std::vector<Ship> ships;
     //create vector of ships
@@ -34,19 +33,13 @@ void BattleShip::BattleShipGame::initializePlayers(GameAttributes& gameAttribute
         ships.emplace_back(Ship(gameAttributes.getShipSizes()[i], gameAttributes.getShipChars()[i], tempPosition));
     }
 
-    //get game type
-    int gameType = gameAttributes.getGameType();
+    int gameType = gameAttributes.getGameType();    //get game type
 
-    //if human vs human
-    if(gameType == 1){
-//        auto player1 = std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 1));
-//        auto player2 = std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 2));
+    if(gameType == 1){      // human vs human
         this->players.push_back(std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 1)));
         this->players.push_back(std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 2)));
     }
-    else if(gameType == 2){
-//        auto player1 = std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 1));
-//        auto player2 = std::unique_ptr<Player>(new AiPlayer(gameAttributes, ships));
+    else if(gameType == 2){     // human vs ai
         this->players.push_back(std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 1)));
         int aiType = 0;
         do{
@@ -67,11 +60,8 @@ void BattleShip::BattleShipGame::initializePlayers(GameAttributes& gameAttribute
             this->players.push_back(std::unique_ptr<Player>(new HuntDestroyAI(gameAttributes, ships)));
         }
     }
-    else{
-//        auto player1 = std::unique_ptr<Player>(new AiPlayer(gameAttributes, ships));
-//        auto player2 = std::unique_ptr<Player>(new AiPlayer(gameAttributes, ships));
-        //this->players.push_back(std::unique_ptr<Player>(new AiPlayer(gameAttributes, ships)));
-        int aiType = 0;
+    else{       // ai vs ai
+        int aiType = 0;     // first ai
         do{
             std::cout << "What AI do you want" << std::endl;
             std::cout << "1. Cheating AI" << std::endl;
@@ -89,7 +79,8 @@ void BattleShip::BattleShipGame::initializePlayers(GameAttributes& gameAttribute
         else{
             this->players.push_back(std::unique_ptr<Player>(new HuntDestroyAI(gameAttributes, ships)));
         }
-        aiType = 0;
+
+        aiType = 0;         // second ai
         do{
             std::cout << "What AI do you want" << std::endl;
             std::cout << "1. Cheating AI" << std::endl;
@@ -107,11 +98,10 @@ void BattleShip::BattleShipGame::initializePlayers(GameAttributes& gameAttribute
         else{
             this->players.push_back(std::unique_ptr<Player>(new HuntDestroyAI(gameAttributes, ships)));
         }
-        //this->players.push_back(std::unique_ptr<Player>(new AiPlayer(gameAttributes, ships)));
     }
 }
 
-void BattleShip::BattleShipGame::takeTurn(std::vector<std::unique_ptr<BattleShip::Player>>& players, int currentTurn) {
+void BattleShip::BattleShipGame::takeTurn(std::vector<std::unique_ptr<BattleShip::Player>>& players, int& currentTurn) {
     std::unique_ptr<BattleShip::Player>& player = players[currentTurn];
     int otherTurn = 0;
     if(currentTurn == 1){
@@ -127,45 +117,45 @@ void BattleShip::BattleShipGame::takeTurn(std::vector<std::unique_ptr<BattleShip
 
     Move move = player->getPosition(players[currentTurn], players[otherTurn]);
     player->getBoard().makeMove(move, players[otherTurn], players[currentTurn]->getName());
-
+    changeTurn(currentTurn);
 }
 
 void BattleShip::BattleShipGame::changeTurn(int& currentTurn) {
     if(currentTurn == 0){
         currentTurn = 1;
     }
-    else{
+    else {
         currentTurn = 0;
     }
 }
 
-//BattleShip::Move BattleShip::BattleShipGame::getPosition(std::unique_ptr<BattleShip::Player> &player) {
-//    return player->getPosition();
-//}
 
 bool BattleShip::BattleShipGame::gameOver() {
-    int numDestroyedShips = 0;
-    for(auto& ship : players[0]->getShipHealths()){
-        if(ship.second == 0){
-            numDestroyedShips++;
-        }
-        if(numDestroyedShips == gameAttributes.getNumShips()){
-            return true;
-        }
-    }
-    numDestroyedShips = 0;
-    for(auto& ship : players[1]->getShipHealths()){
-        if(ship.second == 0){
-            numDestroyedShips++;
-        }
-        if(numDestroyedShips == gameAttributes.getNumShips()){
-            return true;
+   // int numDestroyedShips = 0;
+    for(int i = 0; i < 2; i++) {        // iterate over both players
+        int numDestroyedShips = 0;
+        for (auto &ship : players[i]->getShipHealths()) {
+            // std::cout << ship.first << "\t" << ship.second << std::endl;
+            if (ship.second == 0) {
+                numDestroyedShips++;
+            }
+            if (numDestroyedShips == gameAttributes.getNumShips()) {
+                return true;
+            }
         }
     }
+//    numDestroyedShips = 0;
+//    for(auto& ship : players[1]->getShipHealths()){
+//        if(ship.second == 0){
+//            numDestroyedShips++;
+//        }
+//        if(numDestroyedShips == gameAttributes.getNumShips()){
+//            return true;
+//        }
+//    }
     return false;
-
 }
 
-void BattleShip::BattleShipGame::printWinner(int currentTurn) {
+void BattleShip::BattleShipGame::printWinner(int& currentTurn) {
     std::cout << players[currentTurn]->getName() <<" won the game!" << std::endl;
 }
