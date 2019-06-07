@@ -74,7 +74,7 @@ void BattleShip::Board::makeMove(BattleShip::Move& move, std::unique_ptr<BattleS
         for(auto& ship : otherPlayer->getShipHealths()){
             if(ship.first == shipChar){
 //                std::cout << "before: " << ship.second << std::endl;
-//                ship.second = ship.second - 1;                            // THIS ONLY TEMPORARILY DECREMENTS SHIP.SECOND, NEXT FIRING IT RESETS!
+                ship.second = ship.second - 1;                            // THIS ONLY TEMPORARILY CHANGES SHIP.SECOND, NEXT FIRING IT RESETS!
 //                std::cout << "after: " << ship.second << std::endl;
             }
 //            if(ship.second == 0){
