@@ -29,7 +29,6 @@ std::map<char, int> BattleShip::CheatingAI::getShipHealths() {
     return shipHealths;
 }
 
-// used to return: std::vector<BattleShip::Move> possibleMoves and not take reference to possibleMoves
 std::vector<BattleShip::Move> BattleShip::CheatingAI::makeVector(std::unique_ptr<BattleShip::Player>& otherPlayer) {
     std::vector<Move> possibleMoves;
     for(int i = 0; i < getBoard().getNumRows(); i++){
@@ -47,8 +46,9 @@ std::vector<BattleShip::Move> BattleShip::CheatingAI::makeVector(std::unique_ptr
 
 BattleShip::Move BattleShip::CheatingAI::getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer) {
     std::vector<Move> possibleMoves = makeVector(otherPlayer);
-    int randInt = getRandInt(0, getBoard().getNumRows() - 1, randomNumberGenerator);
-    return possibleMoves[randInt];
+    //int randInt = getRandInt(0, getBoard().getNumRows() - 1, randomNumberGenerator);
+    //return possibleMoves[randInt];
+    return possibleMoves[0];
 }
 
 BattleShip::Board &BattleShip::CheatingAI::getBoard() {
