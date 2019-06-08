@@ -50,3 +50,30 @@ BattleShip::Board &BattleShip::HuntDestroyAI::getBoard() {
 BattleShip::HuntDestroyAI::~HuntDestroyAI() {
     delete this;
 }
+
+void BattleShip::HuntDestroyAI::placeShips() {
+    std::vector<char> orientation_choice{'h', 'v'};
+    const int numRows = getBoard().getNumRows();
+    const int numCols = getBoard().getNumCols();
+
+    ShipPosition placement;
+    for(const auto& ship : ships) {
+        do {
+            char orientation = *chooseRandom(orientation_choice, randomNumberGenerator);
+            if (orientation == 'h') {
+                placement.rowStart = getRandInt(0, numRows - 1, randomNumberGenerator);
+                placement.colStart = getRandInt(0, numCols - ship.getSize(), randomNumberGenerator);
+                placement.rowEnd = placement.rowStart;
+                placement.colEnd = placement.colStart + ship.getSize() - 1;
+            } else {
+                placement.rowStart = getRandInt(0, numRows - ship.getSize(), randomNumberGenerator);
+                placement.colStart = getRandInt(0, numCols - 1, randomNumberGenerator);
+                placement.rowEnd = placement.rowStart + ship.getSize() - 1;
+                placement.colEnd = placement.colStart;
+            }
+        }while(!getBoard().canPlaceShipAt(placement));
+        getBoard().AddShip(ship, placement);
+        getBoard().displayPlacement(name);
+        //view.showPlacementBoard(*this);
+    }
+}

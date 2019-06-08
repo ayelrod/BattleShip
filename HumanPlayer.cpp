@@ -24,6 +24,7 @@ BattleShip::HumanPlayer::HumanPlayer(const BattleShip::GameAttributes &gameAttri
     for(int i = 0; i < ships.size(); i++){
         shipHealths[ships[i].getSymbol()] = gameAttributes.getShipSizes()[i];
     }
+    //std::cout << shipHealths.size() << std::endl;
 
     this->placeShips();
 }

@@ -13,6 +13,7 @@ namespace BattleShip {
         ~HuntDestroyAI() override;
         virtual void initializeName() override;
         void setName(std::string name) override;
+        void placeShips() override;
         Move getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer) override;
         BattleShip::Board& getBoard() override;
         std::vector<Move> makeVector();
