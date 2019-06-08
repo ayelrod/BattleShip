@@ -18,10 +18,9 @@ BattleShip::AiPlayer::AiPlayer() : aiId(nextAiId){
 }
 
 BattleShip::AiPlayer::AiPlayer(const BattleShip::GameAttributes& gameAttributes, std::vector<Ship> ships, int aiId) : aiId(aiId), ships(ships){
-    // Player(gameAttributes, view)
     int aiType = 0;
     do{
-        std::cout << "What AI do you want" << std::endl;
+        std::cout << "What AI do you want?" << std::endl;
         std::cout << "1. Cheating AI" << std::endl;
         std::cout << "2. Random AI" << std::endl;
         std::cout << "3. Hunt Destroy AI" << std::endl;

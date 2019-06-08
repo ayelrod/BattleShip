@@ -11,15 +11,8 @@ BattleShip::HumanPlayer::HumanPlayer(const BattleShip::GameAttributes &gameAttri
     //initialize boards
 
     //get name
-    std::cout << "Player " << playerNumber << ", please enter your name: ";
+    std::cout << "Player " << playerNumber << " please enter your name: ";
     std::cin >> this->name;
-
-//    for(int i = 0; i < ships.size(); i++){
-//        BattleShip::Ship ship = ships[i];
-//        char tempChar = ship.getSymbol();
-//        int tempSize = ship.getSize();
-//        this->shipHealths.insert(std::pair<char, int>(tempChar, tempSize));
-//    }
 
     for(int i = 0; i < static_cast<int>(ships.size()); i++){
         shipHealths[ships[i].getSymbol()] = gameAttributes.getShipSizes()[i];
@@ -31,28 +24,24 @@ BattleShip::HumanPlayer::HumanPlayer(const BattleShip::GameAttributes &gameAttri
 
 void BattleShip::HumanPlayer::placeShips() {
     char orientation;
-//    const int numRows = getBoard().getNumRows();
-//    const int numCols = getBoard().getNumCols();
 
     ShipPosition placement;
-    getBoard().displayPlacement(this->name);
+    getBoard().displayBlankBoard();
     for(const auto& ship : ships) {
-        //getBoard().displayPlacement(this->name);
         do {
             std::cout<< this->name << ", do you want to place " << ship.getSymbol() << " horizontally or vertically?" << std::endl;
+            std::cout << "Enter h for horizontal or v for vertical" << std::endl;
             std::cout << "Your choice: ";
             std::cin >> orientation;
             if (orientation == 'h') {
-                std::cout << this->name << ", enter the row and column you want to place " << ship.getSymbol() << ", which is " << ship.getSize() << " long, at with a space in between row and col:" << std::endl;
-                std::cout << "Your choice: ";
+                std::cout << this->name << ", enter the row and column you want to place " << ship.getSymbol() << ", which is " << ship.getSize() << " long, at with a space in between row and col: ";
                 std::cin >> placement.rowStart;
                 std::cin >> placement.colStart;
                 placement.rowEnd = placement.rowStart;
                 placement.colEnd = placement.colStart + ship.getSize() - 1;
 
             } else if (orientation == 'v'){
-                std::cout << this->name << ", enter the row and column you want to place " << ship.getSymbol() << ", which is " << ship.getSize() << " long, at with a space in between row and col:" << std::endl;
-                std::cout << "Your choice: ";
+                std::cout << this->name << ", enter the row and column you want to place " << ship.getSymbol() << ", which is " << ship.getSize() << " long, at with a space in between row and col: ";
                 std::cin >> placement.rowStart;
                 std::cin >> placement.colStart;
                 placement.rowEnd = placement.rowStart + ship.getSize() - 1;
@@ -63,8 +52,7 @@ void BattleShip::HumanPlayer::placeShips() {
             }
         }while(!getBoard().canPlaceShipAt(placement));
         getBoard().AddShip(ship, placement);
-        getBoard().displayPlacement(name);
-        //view.showPlacementBoard(*this);
+        getBoard().displayPlacementNoName();
     }
 }
 
@@ -102,17 +90,3 @@ void BattleShip::HumanPlayer::initializeName() {
 
 BattleShip::HumanPlayer::~HumanPlayer() {
 }
-
-//std::map<char, int> BattleShip::HumanPlayer::makeMap(std::vector<Ship>& shipVector) {
-//    std::map<char, int> tempMap;
-//    std::pair<char, int> pair('c', 1);
-//    tempMap.insert(pair);
-//    for(auto& ship : shipVector){
-//        char tempChar = ship.getSymbol();
-//        int tempSize = ship.getSize();
-//        tempMap[static_cast<char>(tempChar)] = static_cast<int>(tempSize);
-//    }
-//    return tempMap;
-//}
-
-//BattleShip::HumanPlayer::~HumanPlayer()=default;

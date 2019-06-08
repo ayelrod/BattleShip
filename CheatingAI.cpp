@@ -13,20 +13,13 @@ BattleShip::CheatingAI::CheatingAI(const BattleShip::GameAttributes &gameAttribu
     placeShips();
 }
 
-//void BattleShip::CheatingAI::initializeName() {
-//    AiPlayer::initializeName();
-//}
-//
-//void BattleShip::CheatingAI::setName(std::string name) {
-//    this->name = name;
-//}
-
 void BattleShip::CheatingAI::placeShips() {
     std::vector<char> orientation_choice{'h', 'v'};
     const int numRows = getBoard().getNumRows();
     const int numCols = getBoard().getNumCols();
 
     ShipPosition placement;
+    getBoard().displayBlankBoard();
     for(const auto& ship : ships) {
         do {
             char orientation = *chooseRandom(orientation_choice, randomNumberGenerator);
@@ -43,8 +36,7 @@ void BattleShip::CheatingAI::placeShips() {
             }
         }while(!getBoard().canPlaceShipAt(placement));
         getBoard().AddShip(ship, placement);
-        getBoard().displayPlacement(getName());
-        //view.showPlacementBoard(*this);
+        getBoard().displayPlacementNoName();
     }
 }
 
@@ -60,7 +52,6 @@ std::vector<BattleShip::Move> BattleShip::CheatingAI::makeVector(std::unique_ptr
                 if (otherPlayer->getBoard().getPlacementBoard()[i][k] == ship.first) {
                     Move temp(i, k);
                     possibleMoves.push_back(temp);
-                    //std::cout << possibleMoves.size() << std::endl;
                 }
             }
         }
@@ -70,8 +61,6 @@ std::vector<BattleShip::Move> BattleShip::CheatingAI::makeVector(std::unique_ptr
 
 BattleShip::Move BattleShip::CheatingAI::getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer) {
     std::vector<Move> possibleMoves = makeVector(otherPlayer);
-    //int randInt = getRandInt(0, getBoard().getNumRows() - 1, randomNumberGenerator);
-    //return possibleMoves[randInt];
     return possibleMoves[0];
 }
 

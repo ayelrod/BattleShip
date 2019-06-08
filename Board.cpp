@@ -23,6 +23,43 @@ void BattleShip::Board::AddShip(const BattleShip::Ship &ship, BattleShip::ShipPo
     }
 }
 
+
+void BattleShip::Board::displayFiringNoName() {
+    std::cout << "  ";
+    for (int i = 0; i < getNumCols(); ++i) {
+        std::cout << i << ' ';
+    }
+    std::cout << std::endl;
+
+    int rowIndex = 0;
+    for (const auto& row : firingBoard) {
+        std::cout << rowIndex << ' ';
+        for(const auto& elem : row){
+            std::cout << elem << ' ';
+        }
+        rowIndex++;
+        std::cout << std::endl;
+    }
+}
+
+void BattleShip::Board::displayPlacementNoName() {
+    std::cout << "  ";
+    for (int i = 0; i < getNumCols(); ++i) {
+        std::cout << i << ' ';
+    }
+    std::cout << std::endl;
+
+    int rowIndex = 0;
+    for (const auto& row : placementBoard) {
+        std::cout << rowIndex << ' ';
+        for(const auto& elem : row){
+            std::cout << elem << ' ';
+        }
+        rowIndex++;
+        std::cout << std::endl;
+    }
+}
+
 void BattleShip::Board::displayFiring(std::string name) {
     std::cout << name << "'s Firing Board" << std::endl;
     //print column headers
@@ -42,6 +79,25 @@ void BattleShip::Board::displayFiring(std::string name) {
         std::cout << std::endl;
     }
 }
+
+void BattleShip::Board::displayBlankBoard() {
+    std::cout << "  ";
+    for (int i = 0; i < getNumCols(); ++i) {
+        std::cout << i << ' ';
+    }
+    std::cout << std::endl;
+
+    int rowIndex = 0;
+    for (const auto& row : firingBoard) {
+        std::cout << rowIndex << ' ';
+        for(const auto& elem : row){
+            std::cout << elem << ' ';
+        }
+        rowIndex++;
+        std::cout << std::endl;
+    }
+}
+
 
 void BattleShip::Board::displayPlacement(std::string name) {
     std::cout << name << "'s Placement Board" << std::endl;
@@ -65,29 +121,38 @@ void BattleShip::Board::displayPlacement(std::string name) {
 
 void BattleShip::Board::makeMove(BattleShip::Move& move, std::unique_ptr<BattleShip::Player>& otherPlayer, std::string name) {
     if(otherPlayer->getBoard().getPlacementBoard()[move.row][move.col] == '*'){
-        this->firingBoard[move.row][move.col] = '0';
-        otherPlayer->getBoard().placementBoard[move.row][move.col] = '0';
-        std::cout << "You missed." << std::endl;
+        this->firingBoard[move.row][move.col] = 'O';
+        otherPlayer->getBoard().placementBoard[move.row][move.col] = 'O';
+        this->displayFiring(name);
+        std::cout << "\n" << std::endl;
+        this->displayPlacement(name);
+        std::cout << "Missed." << std::endl;
     }
     else{
         char shipChar = otherPlayer->getBoard().getPlacementBoard()[move.row][move.col];
         for(auto& ship : otherPlayer->getShipHealths()){
             if(ship.first == shipChar){
-//                std::cout << "before: " << ship.second << std::endl;
-                ship.second = ship.second - 1;                            // THIS ONLY TEMPORARILY CHANGES SHIP.SECOND, NEXT FIRING IT RESETS!
-//                std::cout << "after: " << ship.second << std::endl;
+                ship.second = ship.second - 1;
             }
-//            if(ship.second == 0){
-//                std::cout << name << " destroyed " << otherPlayer->getName() << "'s " << ship.first << "!" << std::endl;
-//            }
         }
         this->firingBoard[move.row][move.col] = 'X';
         otherPlayer->getBoard().placementBoard[move.row][move.col] = 'X';
+        this->displayFiring(name);
+        std::cout << "\n" << std::endl;
+        this->displayPlacement(name);
         std::cout << name << " hit " << otherPlayer->getName() << "'s " << shipChar << "!" << std::endl;
         if(otherPlayer->getShipHealths()[shipChar] == 0){
             std::cout << name << " destroyed " << otherPlayer->getName() << "'s " << shipChar << "!" << std::endl;
         }
     }
+
+
+    //if (!this->gameOver(otherPlayer)) {
+        std::cout << std::endl;
+        otherPlayer->getBoard().displayFiring(otherPlayer->getName());
+        std::cout << "\n" << std::endl;
+        otherPlayer->getBoard().displayPlacement(otherPlayer->getName());
+    //}
 }
 
 bool BattleShip::Board::canPlaceShipAt(BattleShip::ShipPosition placement) {

@@ -20,13 +20,17 @@ namespace BattleShip {
         Board();
         Board(const GameAttributes& gameAttributes);
         void displayFiring(std::string name);
+        void displayFiringNoName();
         void displayPlacement(std::string name);
+        void displayPlacementNoName();
+        void displayBlankBoard();
         int getNumRows();
         int getNumCols();
         bool canPlaceShipAt(ShipPosition placement);
         void AddShip(const Ship& ship, ShipPosition placement);
         std::vector<std::string> getFiringBoard(){ return firingBoard; }
         std::vector<std::string> getPlacementBoard(){ return placementBoard; }
+        bool gameOver(std::unique_ptr<BattleShip::Player>& otherPlayer);
         void makeMove(BattleShip::Move& move, std::unique_ptr<BattleShip::Player>& otherPlayer, std::string name);
     private:
         std::vector<std::string> firingBoard;

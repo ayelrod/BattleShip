@@ -18,11 +18,16 @@ BattleShip::BattleShipGame::BattleShipGame(int numRows, int numCols, int numShip
 void BattleShip::BattleShipGame::playGame() {
     BattleShip::AiPlayer::seed_random_number_generator(gameAttributes.getSeed());
     initializePlayers();
+
+    players[currentTurn]->getBoard().displayFiring(players[currentTurn]->getName());
+    std::cout << "\n" << std::endl;
+    players[currentTurn]->getBoard().displayPlacement(players[currentTurn]->getName());
+
     do {
-        takeTurn(players, currentTurn);     // takeTurn now calls changeTurn in function
-        //players[currentTurn]->getBoard().displayFiring(players[currentTurn]->getName());
+        takeTurn(players, currentTurn);
     }while(!gameOver());
     changeTurn(currentTurn);
+    std::cout << std::endl;
     printWinner(currentTurn);
 
 }
@@ -37,7 +42,6 @@ void BattleShip::BattleShipGame::initializePlayers(){
 
     int gameType = gameAttributes.getGameType();    //get game type
 
-
     if(gameType == 1){      // human vs human
         this->players.push_back(std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 1)));
         this->players.push_back(std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 2)));
@@ -46,7 +50,7 @@ void BattleShip::BattleShipGame::initializePlayers(){
         this->players.push_back(std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 1)));
         int aiType = 0;
         do{
-            std::cout << "What AI do you want" << std::endl;
+            std::cout << "What AI do you want?" << std::endl;
             std::cout << "1. Cheating AI" << std::endl;
             std::cout << "2. Random AI" << std::endl;
             std::cout << "3. Hunt Destroy AI" << std::endl;
@@ -66,7 +70,7 @@ void BattleShip::BattleShipGame::initializePlayers(){
     else{       // ai vs ai
         int aiType = 0;     // first ai
         do{
-            std::cout << "What AI do you want" << std::endl;
+            std::cout << "What AI do you want?" << std::endl;
             std::cout << "1. Cheating AI" << std::endl;
             std::cout << "2. Random AI" << std::endl;
             std::cout << "3. Hunt Destroy AI" << std::endl;
@@ -85,7 +89,7 @@ void BattleShip::BattleShipGame::initializePlayers(){
 
         aiType = 0;         // second ai
         do{
-            std::cout << "What AI do you want" << std::endl;
+            std::cout << "What AI do you want?" << std::endl;
             std::cout << "1. Cheating AI" << std::endl;
             std::cout << "2. Random AI" << std::endl;
             std::cout << "3. Hunt Destroy AI" << std::endl;
@@ -107,11 +111,6 @@ void BattleShip::BattleShipGame::initializePlayers(){
 void BattleShip::BattleShipGame::takeTurn(std::vector<std::unique_ptr<BattleShip::Player>>& players, int& currentTurn) {
     std::unique_ptr<BattleShip::Player>& player = players[currentTurn];
 
-    //std::cout << player->getShipHealths().size() << std::endl;
-//    for (auto& elem : player-> getShipHealths()){
-//        std::cout << elem.first << " " << elem.second << std::endl;
-//    }
-
     int otherTurn = 0;
     if(currentTurn == 1){
         otherTurn = 0;
@@ -119,10 +118,9 @@ void BattleShip::BattleShipGame::takeTurn(std::vector<std::unique_ptr<BattleShip
     else{
         otherTurn = 1;
     }
-    //std::unique_ptr<BattleShip::Player>& otherPlayer = players[otherTurn];
 
-    player->getBoard().displayFiring(player->getName());
-    player->getBoard().displayPlacement(player->getName());
+//    player->getBoard().displayFiring(player->getName());
+//    player->getBoard().displayPlacement(player->getName());
 
     Move move = player->getPosition(players[currentTurn], players[otherTurn]);
     player->getBoard().makeMove(move, players[otherTurn], players[currentTurn]->getName());
@@ -140,7 +138,6 @@ void BattleShip::BattleShipGame::changeTurn(int& currentTurn) {
 
 
 bool BattleShip::BattleShipGame::gameOver() {
-   // int numDestroyedShips = 0;
     for(int i = 0; i < 2; i++) {        // iterate over both players
         int numDestroyedShips = 0;
         for (auto &ship : players[i]->getShipHealths()) {
@@ -153,15 +150,6 @@ bool BattleShip::BattleShipGame::gameOver() {
             }
         }
     }
-//    numDestroyedShips = 0;
-//    for(auto& ship : players[1]->getShipHealths()){
-//        if(ship.second == 0){
-//            numDestroyedShips++;
-//        }
-//        if(numDestroyedShips == gameAttributes.getNumShips()){
-//            return true;
-//        }
-//    }
     return false;
 }
 

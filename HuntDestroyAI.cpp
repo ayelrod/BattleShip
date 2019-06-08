@@ -85,6 +85,7 @@ void BattleShip::HuntDestroyAI::placeShips() {
     const int numCols = getBoard().getNumCols();
 
     ShipPosition placement;
+    getBoard().displayBlankBoard();
     for(const auto& ship : ships) {
         do {
             char orientation = *chooseRandom(orientation_choice, randomNumberGenerator);
@@ -101,8 +102,7 @@ void BattleShip::HuntDestroyAI::placeShips() {
             }
         }while(!getBoard().canPlaceShipAt(placement));
         getBoard().AddShip(ship, placement);
-        getBoard().displayPlacement(getName());
-        //view.showPlacementBoard(*this);
+        getBoard().displayPlacementNoName();
     }
 }
 
