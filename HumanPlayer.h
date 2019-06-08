@@ -4,6 +4,7 @@
 
 #ifndef BATTLESHIP_HUMANPLAYER_H
 #define BATTLESHIP_HUMANPLAYER_H
+#include <memory>
 #include "Player.h"
 #include "Board.h"
 

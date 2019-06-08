@@ -6,6 +6,7 @@
 #define BATTLESHIP_PLAYER_H
 
 #include <map>
+#include <memory>
 //#include "Board.h"
 #include "Ship.h"
 #include "Move.h"

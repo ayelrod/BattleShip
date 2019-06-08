@@ -5,7 +5,9 @@
 #ifndef BATTLESHIP_BATTLESHIPGAME_H
 #define BATTLESHIP_BATTLESHIPGAME_H
 #include <vector>
+#include <memory>
 #include "GameAttributes.h"
+#include "Player.h"
 #include "HumanPlayer.h"
 #include "AiPlayer.h"
 

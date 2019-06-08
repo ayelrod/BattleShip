@@ -7,7 +7,7 @@
 BattleShip::RandomAI::RandomAI(const BattleShip::GameAttributes &gameAttributes, std::vector<BattleShip::Ship> ships)
         :  board(gameAttributes),ships(ships){
     this->initializeName();
-    for(int i = 0; i < ships.size(); i++){
+    for(int i = 0; i < static_cast<int>(ships.size()); i++){
         shipHealths[ships[i].getSymbol()] = gameAttributes.getShipSizes()[i];
     }
     placeShips();

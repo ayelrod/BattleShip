@@ -6,6 +6,7 @@
 #define BATTLESHIP_BOARD_H
 #include <vector>
 #include <string>
+#include <memory>
 #include "GameAttributes.h"
 #include "ShipPosition.h"
 #include "Ship.h"

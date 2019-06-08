@@ -7,7 +7,7 @@
 BattleShip::HuntDestroyAI::HuntDestroyAI(const BattleShip::GameAttributes &gameAttributes, std::vector<BattleShip::Ship> ships)
     :  board(gameAttributes) ,ships(ships), mode(1), lastHit(-1, -1){
     this->initializeName();
-    for(int i = 0; i < ships.size(); i++){
+    for(int i = 0; i < static_cast<int>(ships.size()); i++){
         shipHealths[ships[i].getSymbol()] = gameAttributes.getShipSizes()[i];
     }
     placeShips();
