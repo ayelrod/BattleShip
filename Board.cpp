@@ -137,6 +137,9 @@ void BattleShip::Board::makeMove(BattleShip::Move& move, std::unique_ptr<BattleS
         }
         this->firingBoard[move.row][move.col] = 'X';
         otherPlayer->getBoard().placementBoard[move.row][move.col] = 'X';
+        if(gameOver(otherPlayer)){
+            
+        }
         this->displayFiring(name);
         std::cout << "\n" << std::endl;
         this->displayPlacement(name);
@@ -197,4 +200,13 @@ bool BattleShip::Board::canPlaceShipAt(BattleShip::ShipPosition placement) {
 
 BattleShip::Board::Board() : firingBoard(0, 0), placementBoard(0,0) {
 
+}
+
+bool BattleShip::Board::gameOver(std::unique_ptr<BattleShip::Player> &otherPlayer) {
+    for(auto& element : otherPlayer->getShipHealths()){
+        if(element.second != 0){
+            return false;
+        }
+    }
+    return true;
 }
