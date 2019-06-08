@@ -14,11 +14,15 @@ BattleShip::HumanPlayer::HumanPlayer(const BattleShip::GameAttributes &gameAttri
     std::cout << "Player " << playerNumber << ", please enter your name: ";
     std::cin >> this->name;
 
+//    for(int i = 0; i < ships.size(); i++){
+//        BattleShip::Ship ship = ships[i];
+//        char tempChar = ship.getSymbol();
+//        int tempSize = ship.getSize();
+//        this->shipHealths.insert(std::pair<char, int>(tempChar, tempSize));
+//    }
+
     for(int i = 0; i < ships.size(); i++){
-        BattleShip::Ship ship = ships[i];
-        char tempChar = ship.getSymbol();
-        int tempSize = ship.getSize();
-        this->shipHealths.insert(std::pair<char, int>(tempChar, tempSize));
+        shipHealths[ships[i].getSymbol()] = gameAttributes.getShipSizes()[i];
     }
 
     this->placeShips();

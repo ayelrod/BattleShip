@@ -106,6 +106,12 @@ void BattleShip::BattleShipGame::initializePlayers(){
 
 void BattleShip::BattleShipGame::takeTurn(std::vector<std::unique_ptr<BattleShip::Player>>& players, int& currentTurn) {
     std::unique_ptr<BattleShip::Player>& player = players[currentTurn];
+
+    //std::cout << player->getShipHealths().size() << std::endl;
+//    for (auto& elem : player-> getShipHealths()){
+//        std::cout << elem.first << " " << elem.second << std::endl;
+//    }
+
     int otherTurn = 0;
     if(currentTurn == 1){
         otherTurn = 0;

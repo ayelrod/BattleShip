@@ -37,9 +37,7 @@ std::vector<BattleShip::Move> BattleShip::CheatingAI::makeVector(std::unique_ptr
                 if (otherPlayer->getBoard().getPlacementBoard()[i][k] == ship.first) {
                     Move temp(i, k);
                     possibleMoves.push_back(temp);
-                }
-                else{
-                    continue;
+                    //std::cout << possibleMoves.size() << std::endl;
                 }
             }
         }
