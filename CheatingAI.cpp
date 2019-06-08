@@ -19,7 +19,7 @@ void BattleShip::CheatingAI::placeShips() {
     const int numCols = getBoard().getNumCols();
 
     ShipPosition placement;
-    getBoard().displayBlankBoard();
+    //getBoard().displayBlankBoard();
     for(const auto& ship : ships) {
         do {
             char orientation = *chooseRandom(orientation_choice, randomNumberGenerator);
@@ -36,7 +36,7 @@ void BattleShip::CheatingAI::placeShips() {
             }
         }while(!getBoard().canPlaceShipAt(placement));
         getBoard().AddShip(ship, placement);
-        getBoard().displayPlacementNoName();
+        getBoard().displayPlacementAi(this->getName());
     }
 }
 

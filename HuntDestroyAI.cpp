@@ -12,15 +12,6 @@ BattleShip::HuntDestroyAI::HuntDestroyAI(const BattleShip::GameAttributes &gameA
     }
     placeShips();
 }
-
-//void BattleShip::HuntDestroyAI::initializeName() {
-//    AiPlayer::initializeName();
-//}
-
-//void BattleShip::HuntDestroyAI::setName(std::string name) {
-//    this->name = name;
-//}
-
 std::vector<BattleShip::Move> BattleShip::HuntDestroyAI::makeVector() {
     std::vector<Move> possibleMoves;
     for(int i = 0; i < getBoard().getNumRows(); i++){
@@ -66,9 +57,6 @@ BattleShip::Move BattleShip::HuntDestroyAI::getPosition(std::unique_ptr<BattleSh
     else{
         return Move(0, 0);
     }
-
-
-
 }
 
 BattleShip::Board &BattleShip::HuntDestroyAI::getBoard() {
@@ -85,7 +73,7 @@ void BattleShip::HuntDestroyAI::placeShips() {
     const int numCols = getBoard().getNumCols();
 
     ShipPosition placement;
-    getBoard().displayBlankBoard();
+    //getBoard().displayBlankBoard();
     for(const auto& ship : ships) {
         do {
             char orientation = *chooseRandom(orientation_choice, randomNumberGenerator);
@@ -102,7 +90,7 @@ void BattleShip::HuntDestroyAI::placeShips() {
             }
         }while(!getBoard().canPlaceShipAt(placement));
         getBoard().AddShip(ship, placement);
-        getBoard().displayPlacementNoName();
+        getBoard().displayPlacementAi(this->getName());
     }
 }
 

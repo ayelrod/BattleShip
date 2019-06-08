@@ -23,6 +23,24 @@ void BattleShip::Board::AddShip(const BattleShip::Ship &ship, BattleShip::ShipPo
     }
 }
 
+void BattleShip::Board::displayPlacementAi(std::string name) {
+    std::cout << name << "'s Board" << std::endl;
+    std::cout << "  ";
+    for (int i = 0; i < getNumCols(); ++i) {
+        std::cout << i << ' ';
+    }
+    std::cout << std::endl;
+
+    int rowIndex = 0;
+    for (const auto& row : placementBoard) {
+        std::cout << rowIndex << ' ';
+        for(const auto& elem : row){
+            std::cout << elem << ' ';
+        }
+        rowIndex++;
+        std::cout << std::endl;
+    }
+}
 
 void BattleShip::Board::displayFiringNoName() {
     std::cout << "  ";
@@ -150,27 +168,13 @@ void BattleShip::Board::makeMove(BattleShip::Move& move, std::unique_ptr<BattleS
     }
 
 
-    //if (!this->gameOver(otherPlayer)) {
+    if (!gameOver(otherPlayer)) {
         std::cout << std::endl;
         otherPlayer->getBoard().displayFiring(otherPlayer->getName());
         std::cout << "\n" << std::endl;
         otherPlayer->getBoard().displayPlacement(otherPlayer->getName());
-    //}
+    }
 }
-
-//bool BattleShip::Board::gameOver(std::unique_ptr<BattleShip::Player>& otherPlayer) {
-//    int numDestroyedShips = 0;
-//    for (auto &ship : this->getShipSizes()) {
-//        // std::cout << ship.first << "\t" << ship.second << std::endl;
-//        if (ship.second == 0) {
-//            numDestroyedShips++;
-//        }
-//        if (numDestroyedShips == gameAttributes.getNumShips()) {
-//            return true;
-//        }
-//    }
-//    return false;
-//}
 
 bool BattleShip::Board::canPlaceShipAt(BattleShip::ShipPosition placement) {
     if(placement.rowStart < 0 || placement.rowStart > getNumRows()){

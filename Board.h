@@ -24,6 +24,7 @@ namespace BattleShip {
         void displayPlacement(std::string name);
         void displayPlacementNoName();
         void displayBlankBoard();
+        void displayPlacementAi(std::string name);
         int getNumRows();
         int getNumCols();
         bool canPlaceShipAt(ShipPosition placement);

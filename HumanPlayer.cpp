@@ -8,17 +8,11 @@
 
 BattleShip::HumanPlayer::HumanPlayer(const BattleShip::GameAttributes &gameAttributes, std::vector<BattleShip::Ship>& ships, int playerNumber) :
         board(gameAttributes), shipHealths(), ships(ships){
-    //initialize boards
-
-    //get name
     std::cout << "Player " << playerNumber << " please enter your name: ";
     std::cin >> this->name;
-
     for(int i = 0; i < static_cast<int>(ships.size()); i++){
         shipHealths[ships[i].getSymbol()] = gameAttributes.getShipSizes()[i];
     }
-    //std::cout << shipHealths.size() << std::endl;
-
     this->placeShips();
 }
 

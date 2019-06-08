@@ -60,8 +60,7 @@ void BattleShip::AiPlayer::placeShips() {
             }
         }while(!getBoard().canPlaceShipAt(placement));
         getBoard().AddShip(ship, placement);
-        getBoard().displayPlacement(name);
-        //view.showPlacementBoard(*this);
+        getBoard().displayPlacementAi(this->getName());
     }
 }
 

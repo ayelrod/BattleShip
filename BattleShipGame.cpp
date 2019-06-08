@@ -118,10 +118,6 @@ void BattleShip::BattleShipGame::takeTurn(std::vector<std::unique_ptr<BattleShip
     else{
         otherTurn = 1;
     }
-
-//    player->getBoard().displayFiring(player->getName());
-//    player->getBoard().displayPlacement(player->getName());
-
     Move move = player->getPosition(players[currentTurn], players[otherTurn]);
     player->getBoard().makeMove(move, players[otherTurn], players[currentTurn]->getName());
     changeTurn(currentTurn);
