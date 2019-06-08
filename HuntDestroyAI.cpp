@@ -124,20 +124,21 @@ std::vector<BattleShip::Move> BattleShip::HuntDestroyAI::makeDestroyVector() {
     int col = this->lastHit.col;
     Move tempMove;
     std::vector<Move> possibleMoves;
+    if(col - 1 >= 0 && getBoard().getFiringBoard()[row][col - 1] == '*'){
+        tempMove = Move(row, col - 1);
+        possibleMoves.push_back(tempMove);
+    }
     if(row - 1 >= 0 && getBoard().getFiringBoard()[row - 1][col] == '*'){
         tempMove = Move(row - 1, col);
         possibleMoves.push_back(tempMove);
     }
-    if(col - 1 >= 0 && getBoard().getFiringBoard()[row][col - 1] == '*'){
-        tempMove = Move(row, col - 1);
-        possibleMoves.push_back(tempMove);
+    if(col + 1 < getBoard().getNumCols() && getBoard().getFiringBoard()[row][col + 1] == '*'){
+        tempMove = Move(row, col+ 1);
     }
     if(row + 1 < getBoard().getNumRows() && getBoard().getFiringBoard()[row + 1][col] == '*'){
         tempMove = Move(row + 1, col);
         possibleMoves.push_back(tempMove);
     }
-    if(col + 1 < getBoard().getNumCols() && getBoard().getFiringBoard()[row][col + 1] == '*'){
-        tempMove = Move(row + 1, col);
-    }
+
     return possibleMoves;
 }

@@ -138,7 +138,7 @@ void BattleShip::Board::makeMove(BattleShip::Move& move, std::unique_ptr<BattleS
         this->firingBoard[move.row][move.col] = 'X';
         otherPlayer->getBoard().placementBoard[move.row][move.col] = 'X';
         if(gameOver(otherPlayer)){
-            
+
         }
         this->displayFiring(name);
         std::cout << "\n" << std::endl;
