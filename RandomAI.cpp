@@ -13,13 +13,13 @@ BattleShip::RandomAI::RandomAI(const BattleShip::GameAttributes &gameAttributes,
     placeShips();
 }
 
-void BattleShip::RandomAI::initializeName() {
-    AiPlayer::initializeName();
-}
-
-void BattleShip::RandomAI::setName(std::string name) {
-    this->name = name;
-}
+//void BattleShip::RandomAI::initializeName() {
+//    AiPlayer::initializeName();
+//}
+//
+//void BattleShip::RandomAI::setName(std::string name) {
+//    this->name = name;
+//}
 
 std::map<char, int>& BattleShip::RandomAI::getShipHealths() {
     return shipHealths;
@@ -74,7 +74,7 @@ void BattleShip::RandomAI::placeShips() {
             }
         }while(!getBoard().canPlaceShipAt(placement));
         getBoard().AddShip(ship, placement);
-        getBoard().displayPlacement(name);
+        getBoard().displayPlacement(getName());
         //view.showPlacementBoard(*this);
     }
 }

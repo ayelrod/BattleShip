@@ -13,11 +13,11 @@
 int BattleShip::AiPlayer::nextAiId = 1;
 std::mt19937 BattleShip::AiPlayer::randomNumberGenerator((time(nullptr)));
 
-BattleShip::AiPlayer::AiPlayer() : aiId(1){
-
+BattleShip::AiPlayer::AiPlayer() : aiId(nextAiId){
+    nextAiId++;
 }
 
-BattleShip::AiPlayer::AiPlayer(const BattleShip::GameAttributes& gameAttributes, std::vector<Ship> ships) : aiId(AiPlayer::nextAiId), ships(ships){
+BattleShip::AiPlayer::AiPlayer(const BattleShip::GameAttributes& gameAttributes, std::vector<Ship> ships, int aiId) : aiId(aiId), ships(ships){
     // Player(gameAttributes, view)
     int aiType = 0;
     do{
@@ -37,7 +37,6 @@ BattleShip::AiPlayer::AiPlayer(const BattleShip::GameAttributes& gameAttributes,
     else{
         std::unique_ptr<Player>(new HuntDestroyAI(gameAttributes, ships));
     }
-    nextAiId++;
 }
 
 void BattleShip::AiPlayer::placeShips() {

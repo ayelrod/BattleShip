@@ -16,7 +16,7 @@ class AiPlayer : public Player {
      public:
         AiPlayer();
         ~AiPlayer() override;
-        AiPlayer(const BattleShip::GameAttributes& gameAttributes, std::vector<Ship> ships);
+        AiPlayer(const BattleShip::GameAttributes& gameAttributes, std::vector<Ship> ships, int aiId);
         static void seed_random_number_generator(int seed);
         virtual void placeShips() override = 0;
         virtual void initializeName() override;

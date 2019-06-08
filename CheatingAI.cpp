@@ -13,13 +13,13 @@ BattleShip::CheatingAI::CheatingAI(const BattleShip::GameAttributes &gameAttribu
     placeShips();
 }
 
-void BattleShip::CheatingAI::initializeName() {
-    AiPlayer::initializeName();
-}
-
-void BattleShip::CheatingAI::setName(std::string name) {
-    this->name = name;
-}
+//void BattleShip::CheatingAI::initializeName() {
+//    AiPlayer::initializeName();
+//}
+//
+//void BattleShip::CheatingAI::setName(std::string name) {
+//    this->name = name;
+//}
 
 void BattleShip::CheatingAI::placeShips() {
     std::vector<char> orientation_choice{'h', 'v'};
@@ -43,7 +43,7 @@ void BattleShip::CheatingAI::placeShips() {
             }
         }while(!getBoard().canPlaceShipAt(placement));
         getBoard().AddShip(ship, placement);
-        getBoard().displayPlacement(name);
+        getBoard().displayPlacement(getName());
         //view.showPlacementBoard(*this);
     }
 }

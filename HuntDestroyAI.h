@@ -11,8 +11,8 @@ namespace BattleShip {
     public:
         HuntDestroyAI(const GameAttributes& gameAttributes, std::vector<Ship> ships);
         ~HuntDestroyAI() override;
-        virtual void initializeName() override;
-        void setName(std::string name) override;
+        //virtual void initializeName() override;
+        //void setName(std::string name) override;
         void placeShips() override;
         std::vector<Move> makeRandomVector();
         std::vector<Move> makeDestroyVector();
@@ -24,7 +24,7 @@ namespace BattleShip {
     protected:
         Board board;
         std::map<char, int> shipHealths;
-        std::string name;
+        //std::string name;
         std::vector<Ship> ships;
         int mode;
         Move lastHit;
