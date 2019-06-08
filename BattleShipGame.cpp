@@ -19,6 +19,7 @@ void BattleShip::BattleShipGame::playGame() {
     initializePlayers();
     do {
         takeTurn(players, currentTurn);     // takeTurn now calls changeTurn in function
+        //players[currentTurn]->getBoard().displayFiring(players[currentTurn]->getName());
     }while(!gameOver());
     changeTurn(currentTurn);
     printWinner(currentTurn);
