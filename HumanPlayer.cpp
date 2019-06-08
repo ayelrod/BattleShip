@@ -101,7 +101,6 @@ void BattleShip::HumanPlayer::initializeName() {
 }
 
 BattleShip::HumanPlayer::~HumanPlayer() {
-    delete this;
 }
 
 //std::map<char, int> BattleShip::HumanPlayer::makeMap(std::vector<Ship>& shipVector) {

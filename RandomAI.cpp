@@ -49,7 +49,7 @@ BattleShip::Board &BattleShip::RandomAI::getBoard() {
 }
 
 BattleShip::RandomAI::~RandomAI() {
-    delete this;
+
 }
 
 void BattleShip::RandomAI::placeShips() {

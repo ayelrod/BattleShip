@@ -48,7 +48,7 @@ BattleShip::Board &BattleShip::HuntDestroyAI::getBoard() {
 }
 
 BattleShip::HuntDestroyAI::~HuntDestroyAI() {
-    delete this;
+
 }
 
 void BattleShip::HuntDestroyAI::placeShips() {

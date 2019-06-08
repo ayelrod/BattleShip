@@ -23,7 +23,7 @@ class AiPlayer : public Player {
         virtual BattleShip::Board& getBoard() override=0;
         virtual void setName(std::string name);
         std::string getName() override;
-        virtual Move getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer) override=0;
+        virtual Move getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer) override{Move move; return move;};
         virtual std::map<char, int>& getShipHealths() override=0;
 
      protected:

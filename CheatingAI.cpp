@@ -80,5 +80,4 @@ BattleShip::Board &BattleShip::CheatingAI::getBoard() {
 }
 
 BattleShip::CheatingAI::~CheatingAI() {
-    delete this;
 }
