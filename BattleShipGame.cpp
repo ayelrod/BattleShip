@@ -2,6 +2,7 @@
 // Created by Lucas Rodriguez on 2019-06-03.
 //
 
+#include <map>
 #include "BattleShipGame.h"
 #include "AiPlayer.h"
 #include "CheatingAI.h"
@@ -35,6 +36,7 @@ void BattleShip::BattleShipGame::initializePlayers(){
     }
 
     int gameType = gameAttributes.getGameType();    //get game type
+
 
     if(gameType == 1){      // human vs human
         this->players.push_back(std::unique_ptr<Player>(new HumanPlayer(gameAttributes, ships, 1)));

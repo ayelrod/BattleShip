@@ -19,6 +19,7 @@ namespace BattleShip {
         bool validMove(int row, int col);
         std::map<char, int> getShipHealths() override;
         void initializeName() override;
+        //std::map<char, int> makeMap(std::vector<Ship>& shipVector);
         
     protected:
         Board board;

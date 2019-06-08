@@ -2,10 +2,12 @@
 // Created by Lucas Rodriguez on 2019-06-03.
 //
 
+#include <map>
 #include "HumanPlayer.h"
 
+
 BattleShip::HumanPlayer::HumanPlayer(const BattleShip::GameAttributes &gameAttributes, std::vector<BattleShip::Ship>& ships, int playerNumber) :
-        board(gameAttributes),ships(ships){
+        board(gameAttributes), shipHealths(), ships(ships){
     //initialize boards
 
     //get name
@@ -14,7 +16,9 @@ BattleShip::HumanPlayer::HumanPlayer(const BattleShip::GameAttributes &gameAttri
 
     for(int i = 0; i < ships.size(); i++){
         BattleShip::Ship ship = ships[i];
-        this->shipHealths.insert(std::pair<char, int>(ship.getSymbol(), gameAttributes.getShipSizes()[i]));
+        char tempChar = ship.getSymbol();
+        int tempSize = ship.getSize();
+        this->shipHealths.insert(std::pair<char, int>(tempChar, tempSize));
     }
 
     this->placeShips();
@@ -94,5 +98,17 @@ void BattleShip::HumanPlayer::initializeName() {
 BattleShip::HumanPlayer::~HumanPlayer() {
     delete this;
 }
+
+//std::map<char, int> BattleShip::HumanPlayer::makeMap(std::vector<Ship>& shipVector) {
+//    std::map<char, int> tempMap;
+//    std::pair<char, int> pair('c', 1);
+//    tempMap.insert(pair);
+//    for(auto& ship : shipVector){
+//        char tempChar = ship.getSymbol();
+//        int tempSize = ship.getSize();
+//        tempMap[static_cast<char>(tempChar)] = static_cast<int>(tempSize);
+//    }
+//    return tempMap;
+//}
 
 //BattleShip::HumanPlayer::~HumanPlayer()=default;
