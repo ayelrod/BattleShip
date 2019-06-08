@@ -155,6 +155,20 @@ void BattleShip::Board::makeMove(BattleShip::Move& move, std::unique_ptr<BattleS
     //}
 }
 
+//bool BattleShip::Board::gameOver(std::unique_ptr<BattleShip::Player>& otherPlayer) {
+//    int numDestroyedShips = 0;
+//    for (auto &ship : this->getShipSizes()) {
+//        // std::cout << ship.first << "\t" << ship.second << std::endl;
+//        if (ship.second == 0) {
+//            numDestroyedShips++;
+//        }
+//        if (numDestroyedShips == gameAttributes.getNumShips()) {
+//            return true;
+//        }
+//    }
+//    return false;
+//}
+
 bool BattleShip::Board::canPlaceShipAt(BattleShip::ShipPosition placement) {
     if(placement.rowStart < 0 || placement.rowStart > getNumRows()){
         return false;
