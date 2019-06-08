@@ -14,6 +14,8 @@ namespace BattleShip {
         virtual void initializeName() override;
         void setName(std::string name) override;
         void placeShips() override;
+        std::vector<Move> makeRandomVector();
+        std::vector<Move> makeDestroyVector();
         Move getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer) override;
         BattleShip::Board& getBoard() override;
         std::vector<Move> makeVector();
@@ -24,6 +26,8 @@ namespace BattleShip {
         std::map<char, int> shipHealths;
         std::string name;
         std::vector<Ship> ships;
+        int mode;
+        Move lastHit;
 
     };
 }
