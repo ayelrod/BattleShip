@@ -24,7 +24,7 @@ namespace BattleShip {
         virtual Board& getBoard()=0;
         virtual std::string getName()=0;
         virtual Move getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer)=0;
-        virtual std::map<char, int> getShipHealths()=0;
+        virtual std::map<char, int>& getShipHealths()=0;
     };
 }
 #endif //BATTLESHIP_PLAYER_H

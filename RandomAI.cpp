@@ -21,7 +21,7 @@ void BattleShip::RandomAI::setName(std::string name) {
     this->name = name;
 }
 
-std::map<char, int> BattleShip::RandomAI::getShipHealths() {
+std::map<char, int>& BattleShip::RandomAI::getShipHealths() {
     return shipHealths;
 }
 

@@ -17,7 +17,7 @@ namespace BattleShip {
         Move getPosition(std::unique_ptr<BattleShip::Player>& player, std::unique_ptr<BattleShip::Player>& otherPlayer) override;
         BattleShip::Board& getBoard() override;
         std::vector<Move> makeVector();
-        std::map<char, int> getShipHealths() override;
+        std::map<char, int>& getShipHealths() override;
 
     protected:
         Board board;

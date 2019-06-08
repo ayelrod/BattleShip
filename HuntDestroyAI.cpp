@@ -34,7 +34,7 @@ std::vector<BattleShip::Move> BattleShip::HuntDestroyAI::makeVector() {
     return possibleMoves;
 }
 
-std::map<char, int> BattleShip::HuntDestroyAI::getShipHealths() {
+std::map<char, int>& BattleShip::HuntDestroyAI::getShipHealths() {
     return shipHealths;
 }
 

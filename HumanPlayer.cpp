@@ -88,7 +88,7 @@ bool BattleShip::HumanPlayer::validMove(int row, int col) {
     return getBoard().getFiringBoard()[row][col] == '*';
 }
 
-std::map<char, int> BattleShip::HumanPlayer::getShipHealths() {
+std::map<char, int>& BattleShip::HumanPlayer::getShipHealths() {
     return shipHealths;
 }
 

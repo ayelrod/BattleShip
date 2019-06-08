@@ -48,7 +48,7 @@ void BattleShip::CheatingAI::placeShips() {
     }
 }
 
-std::map<char, int> BattleShip::CheatingAI::getShipHealths() {
+std::map<char, int>& BattleShip::CheatingAI::getShipHealths() {
     return shipHealths;
 }
 
