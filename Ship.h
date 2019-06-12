@@ -23,5 +23,4 @@ namespace BattleShip {
     };
 }
 
-
 #endif //BATTLESHIP_SHIP_H

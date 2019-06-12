@@ -7,7 +7,6 @@
 
 #include <map>
 #include <memory>
-//#include "Board.h"
 #include "Ship.h"
 #include "Move.h"
 #include "GameAttributes.h"
@@ -16,10 +15,7 @@ namespace BattleShip {
     class Board;
     class Player {
     public:
-        //Player();
         virtual ~Player();
-        //Player(const GameAttributes& gameAttributes, std::vector<Ship> ships);
-        //Player(const GameAttributes& gameAttributes, std::vector<Ship> ships, int playerNumber);
         virtual void placeShips()=0;
         virtual void initializeName()=0;
         virtual Board& getBoard()=0;
